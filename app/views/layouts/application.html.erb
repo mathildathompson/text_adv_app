@@ -8,7 +8,16 @@
 </head>
 <body>
 
-<%= yield %>
+  <div id="container">
+    <nav>
+      <li><%= link_to 'Adventures', adventures_path %></li>
+      <li><%= link_to 'New Adventures', new_adventure_path %></li>
+      <li><%= link_to 'Scenes', scenes_path %></li>
+      <li><%= link_to 'New Scene', new_scene_path %></li>  
+    </nav>
+
+    <%= yield %>
+  </div>
 
 </body>
 </html>

@@ -1,0 +1,5 @@
+<h2><%= @scene.title %></h2>
+<%= image_tag @scene.image, :class => 'scene' %>
+<p><%= @scene.first_visit %></p>
+<p><%= @scene.description %></p>
+<p><%= link_to 'Edit', edit_scene_path(@scene.id) %> | <%= link_to 'Delete', scene_path(@scene.id), :method => 'delete' %></p>

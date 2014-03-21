@@ -10,7 +10,7 @@ A website to enable users to create, share and play text adventures. A text adve
 User
 
 * Username
-* Password
+* Password 
 * adventures[] - the adventures the user is creating
 * games[]
 
@@ -18,17 +18,19 @@ Adventure
 
 * name
 * status: [Published,Draft] - available to play or not
+* first_scene - where to start the adventure (scene_id)
 * scenes[]
 * Facebook API to share adventures
 
 Scene
 
+* Title (displayed when editing)
+* discovery_text (if not visited)
+* description_text
 * Image
-* First visit text (if not visited)
-* Description
-* Options => Links to other Scenes
 * Multi visit y/n (does this option dissapear after first visit)
 * End = Y or N (if Y, must restart the adventure)
+* Options[] => Links to other Scenes
 
 Game (to save progress)
 

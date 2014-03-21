@@ -1,0 +1,13 @@
+<h2><%= @adventure.name %></h2>
+<p>Status: <%= @adventure.status %></p>
+<p>
+  <%= link_to 'Edit', edit_adventure_path(@adventure.id) %>
+  <%= link_to 'Delete', adventure_path(@adventure.id), :method => 'delete' %>
+</p>
+
+<h3>Scenes in this Adventure</h3>
+<ul>
+  <% @adventure.scenes.each do |scene| %>
+    <li><%= link_to(scene.title,scene) %></li>
+  <% end %>
+</ul>

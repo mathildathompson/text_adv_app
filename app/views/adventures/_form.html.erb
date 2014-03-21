@@ -1,0 +1,14 @@
+<%= form_for @adventure do |f| %>
+  <div class="form-field">
+    <%= f.label :name %>
+    <%= f.text_field :name, :required => true %>
+  </div>
+  <!-- Changing status is only possibly by editing -->
+  <% if params['action'] == 'edit' %>
+    <div class="form-field">
+      <%= f.label :status %>
+      <%= f.select :status, @statuses %>
+    </div>
+  <% end %>
+  <%= f.submit %>
+<% end %>
