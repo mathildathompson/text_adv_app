@@ -1,0 +1,25 @@
+# PostgreSQL. Versions 8.2 and up are supported.
+
+development:
+  adapter: postgresql
+  encoding: unicode
+  database: text_adv_app_development
+  pool: 5
+  username: Nizmox
+  password:
+
+# test:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: text_adv_app_test
+#   pool: 5
+#   username: text_adv_app
+#   password:
+
+# production:
+#   adapter: postgresql
+#   encoding: unicode
+#   database: text_adv_app_production
+#   pool: 5
+#   username: text_adv_app
+#   password:
