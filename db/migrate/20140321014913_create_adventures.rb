@@ -4,6 +4,7 @@ class CreateAdventures < ActiveRecord::Migration
       t.integer :user_id
       t.string :name
       t.string :status
+      t.text :description
       t.timestamps
     end
   end

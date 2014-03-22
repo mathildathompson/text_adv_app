@@ -1,5 +1,9 @@
-<h2><%= @adventure.name %></h2>
+<h2>Adventure: <%= @adventure.name %></h2>
 <p>Status: <%= @adventure.status %></p>
+<p>Description: <%= @adventure.description %></p>
+
+<h2>Editor Options!</h2>
+<p>The current scene</p>
 <p>
   <%= link_to 'Edit', edit_adventure_path(@adventure.id) %>
   <%= link_to 'Delete', adventure_path(@adventure.id), :method => 'delete' %>

@@ -9,6 +9,7 @@
 #
 
 class Path < ActiveRecord::Base
+  #relationships
   belongs_to :scene, :class_name => :Scene
   belongs_to :destination, :class_name => :Scene
 end

@@ -18,6 +18,8 @@ class Scene < ActiveRecord::Base
   #attributes
   attr_accessible :title, :first_visit, :description, :image, :end, :multi_visit, :adventure_id
   #relationships
+  belongs_to :adventure
+  #self-join relationships
   has_many(:paths, :foreign_key => :scene_id, :dependent => :destroy)
   has_many :destinations, :through => :paths, :source => :destination
 

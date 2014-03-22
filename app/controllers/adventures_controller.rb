@@ -7,14 +7,14 @@ class AdventuresController < ApplicationController
   def show
     @adventure = Adventure.find params[:id]
 
+    #check for orphaned scenes (where no destinations and not the end)
     @orphans = []
     @adventure.scenes.each do |scene|
-      if scene.destinations.empty? #&& scene.end = false
+      if scene.destinations.empty? && scene.end == false
         @orphans << scene
       end
     end
 
-    # binding.pry
   end
 
   def new

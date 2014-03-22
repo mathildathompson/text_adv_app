@@ -16,7 +16,9 @@ user.password = "test1234"
 user.password_confirmation = "test1234"
 user.save
 
-adv = Adventure.create(:name => 'End of Days', :status => 'Draft')
+adv = Adventure.new(:name => 'End of Days', :status => 'Draft')
+adv.description = "A post apocalyptic adventure that's fun for the whole family! Including Cannibals, Slavers and Mutants!"
+adv.save
 
 scene = Scene.new
 scene.title = "Barren Wastes"
@@ -36,10 +38,12 @@ scene2.end = false
 scene2.multi_visit = true
 scene2.save
 
+#link user tp adventure to scenes
 user.adventures << adv
 adv.scenes << scene
 adv.scenes << scene2
 
+#create scene to scene relationship
 scene.destinations << scene2
 
 path = scene.paths.first

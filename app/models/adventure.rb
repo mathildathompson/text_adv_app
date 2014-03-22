@@ -2,12 +2,13 @@
 #
 # Table name: adventures
 #
-#  id         :integer          not null, primary key
-#  user_id    :integer
-#  name       :string(255)
-#  status     :string(255)
-#  created_at :datetime
-#  updated_at :datetime
+#  id          :integer          not null, primary key
+#  user_id     :integer
+#  name        :string(255)
+#  status      :string(255)
+#  description :text
+#  created_at  :datetime
+#  updated_at  :datetime
 #
 
 class Adventure < ActiveRecord::Base

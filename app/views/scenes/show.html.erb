@@ -2,7 +2,6 @@
 <%= image_tag @scene.image, :class => 'scene' %>
 <p><%= @scene.first_visit %></p>
 <p><%= @scene.description %></p>
-<p><%= link_to 'Edit', edit_scene_path(@scene.id) %> | <%= link_to 'Delete', scene_path(@scene.id), :method => 'delete' %></p>
 
 <% if @scene.end %>
   <p>You've reached the end of this adventure, play again?</p>
@@ -15,3 +14,13 @@
     <% end %>
   </ul>
 <% end %>
+
+<h2>Editor Options!</h2>
+<p>The current adventure</p>
+<p><%= link_to 'Edit', edit_scene_path(@scene.id) %> | <%= link_to 'Delete', scene_path(@scene.id), :method => 'delete' %></p>
+
+<p>Create a New Scene and Link to this scene</p>
+<p><%= link_to 'Link Scene', link_scene_path(@scene.id) %>
+
+<p>Link this scene to an existing scene</p>
+<p>To be added...</p>
