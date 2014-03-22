@@ -13,7 +13,7 @@
 
 class Adventure < ActiveRecord::Base
   #attributes
-  attr_accessible :name, :status, :user_id
+  attr_accessible :user_id, :name, :status, :description
   #relationships
   belongs_to :user
   has_many :scenes

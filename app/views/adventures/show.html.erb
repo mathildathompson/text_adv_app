@@ -1,11 +1,14 @@
 <h2>Adventure: <%= @adventure.name %></h2>
 <p>Status: <%= @adventure.status %></p>
 <p>Description: <%= @adventure.description %></p>
+<%= image_tag @adventure.image, :class => 'scene' %>
+<p>Click Here to Play!</p>
+
+<hr>
 
 <h2>Editor Options!</h2>
-<p>The current scene</p>
-<p>
-  <%= link_to 'Edit', edit_adventure_path(@adventure.id) %>
+<p>The Current Adventure - 
+  <%= link_to 'Edit', edit_adventure_path(@adventure.id) %> | 
   <%= link_to 'Delete', adventure_path(@adventure.id), :method => 'delete' %>
 </p>
 

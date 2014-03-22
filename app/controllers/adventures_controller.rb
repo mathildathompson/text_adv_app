@@ -1,5 +1,7 @@
 class AdventuresController < ApplicationController
 
+  before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
+
   def index
     @adventures = Adventure.all
   end
@@ -24,12 +26,16 @@ class AdventuresController < ApplicationController
   def create
     @adventure = Adventure.new(params[:adventure])
     @adventure.status = 'Draft'
+    @adventure.user_id = current_user.id
+
+    binding.pry
 
     if @adventure.save
       redirect_to @adventure
     else
       render 'new'
     end
+
   end
 
   def edit

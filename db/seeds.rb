@@ -18,6 +18,8 @@ user.save
 
 adv = Adventure.new(:name => 'End of Days', :status => 'Draft')
 adv.description = "A post apocalyptic adventure that's fun for the whole family! Including Cannibals, Slavers and Mutants!"
+adv.image = 'http://www.secretsofthefed.com/wp-content/uploads/2013/06/Post-Apocalypse-London.jpg'
+adv.user_id = user.id
 adv.save
 
 scene = Scene.new

@@ -1,7 +1,20 @@
-img.scene {
-  max-width: 500px;
+#container {
+  max-width: 960px;
+  margin: 0 auto;
 }
 
-nav li {
-  display: inline-block;
+nav {
+  padding: 10px;
+  background-color: black;
+   li {
+    display: inline-block;
+    a {
+      color: white;
+      padding-right: 10px;
+    }//a
+  }//li
+}//nav
+
+img.scene {
+  max-width: 500px;
 }

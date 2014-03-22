@@ -1,11 +1,12 @@
 TextAdvApp::Application.routes.draw do
   devise_for :users
 
-  root 'home#index'
+  root 'home#index', :as => :home
 
-  get 'scenes/link/:origin_id' => 'scenes#new_link', :as => :link_scene
-  post 'scenes/link/:origin_id' => 'scenes#create_link'
+  resources :adventures
 
-  resources :adventures, :scenes
+  resources :scenes, :only => [:index, :show, :edit, :update, :destroy]
+  get 'scenes/new/:origin_id' => 'scenes#new', :as => :new_scene
+  post 'scenes/:origin_id' => 'scenes#create'
   
 end

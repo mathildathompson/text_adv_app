@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140322013402) do
     t.string   "name"
     t.string   "status"
     t.text     "description"
+    t.text     "image"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

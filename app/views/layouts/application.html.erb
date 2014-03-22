@@ -10,12 +10,10 @@
 
   <div id="container">
     <nav>
-      <li><%= link_to 'Home', '/' %></li>
+      <li><%= link_to 'Home', home_path %></li>
       <li><%= link_to 'Sign in', new_user_session_path %></li>
       <li><%= link_to 'Adventures', adventures_path %></li>
-      <li><%= link_to 'New Adventures', new_adventure_path %></li>
-      <li><%= link_to 'Scenes', scenes_path %></li>
-      <li><%= link_to 'New Scene', new_scene_path %></li>  
+      <li><%= link_to 'New Adventure', new_adventure_path %></li>
     </nav>
 
     <%= yield %>

@@ -1,25 +1,13 @@
 class ScenesController < ApplicationController
 
+  before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
+
   def index
     @scenes = Scene.all
   end
 
   def show
     @scene = Scene.find params[:id]
-  end
-
-  def new
-    @scene = Scene.new
-  end
-
-  def create
-    @scene = Scene.new(params[:scene])
-
-    if @scene.save
-      redirect_to @scene
-    else
-      render 'new'
-    end
   end
 
   def edit
@@ -42,15 +30,15 @@ class ScenesController < ApplicationController
     redirect_to scenes_path
   end
 
-  #----------------NON-CRUD----------------
+  #----------------NON-STANDARD-CRUD----------------
 
-  def new_link
+  def new
     @scene = Scene.new
 
     @origin = Scene.find params[:origin_id]
   end
 
-  def create_link
+  def create
     #create a new scene
     @scene = Scene.new(params[:scene])
 
