@@ -24,11 +24,10 @@ class AdventuresController < ApplicationController
   end
 
   def create
-    @adventure = Adventure.new(params[:adventure])
+
+    @adventure = current_user.adventure.new(params[:adventure])
     @adventure.status = 'Draft'
     @adventure.user_id = current_user.id
-
-    binding.pry
 
     if @adventure.save
       redirect_to @adventure

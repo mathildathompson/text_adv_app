@@ -16,6 +16,8 @@ user.password = "test1234"
 user.password_confirmation = "test1234"
 user.save
 
+#----------------------------------------
+
 adv = Adventure.new(:name => 'End of Days', :status => 'Draft')
 adv.description = "A post apocalyptic adventure that's fun for the whole family! Including Cannibals, Slavers and Mutants!"
 adv.image = 'http://www.secretsofthefed.com/wp-content/uploads/2013/06/Post-Apocalypse-London.jpg'
@@ -51,6 +53,17 @@ scene.destinations << scene2
 path = scene.paths.first
 path.description = "Walk down the road?"
 path.save
+
+#----------------------------------------
+
+adv2 = Adventure.new(:name => 'No-one No-where', :status => 'Draft')
+adv2.description = "What if you woke up and the entire world had vanished without a trace?"
+adv2.image = 'http://i.dailymail.co.uk/i/pix/2011/09/04/article-2033551-0DB21EA400000578-387_964x642.jpg'
+adv2.user_id = user.id
+adv2.save
+
+user.adventures < adv2
+
 
 
 

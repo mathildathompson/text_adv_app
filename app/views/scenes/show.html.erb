@@ -16,13 +16,17 @@
   </ul>
 <% end %>
 
-<hr>
+<% if user_signed_in? %>
 
-<h2>Editor Options!</h2>
-<p>The Current Scene - <%= link_to 'Edit', edit_scene_path(@scene.id) %> | <%= link_to 'Delete', scene_path(@scene.id), :method => 'delete' %></p>
+  <hr>
 
-<p>Create a New Scene and Link to this scene</p>
-<p><%= link_to 'Link Scene', new_scene_path(@scene.id) %>
+  <h2>Editor Options!</h2>
+  <p>The Current Scene - <%= link_to 'Edit', edit_scene_path(@scene.id) %> | <%= link_to 'Delete', scene_path(@scene.id), :method => 'delete' %></p>
 
-<p>Link this scene to an existing scene</p>
-<p>To be added...</p>
+  <p>Create a New Scene and Link to this scene</p>
+  <p><%= link_to 'Link Scene', new_scene_path(@scene.id) %>
+
+  <p>Link this scene to an existing scene</p>
+  <p>To be added...</p>
+
+<% end %>

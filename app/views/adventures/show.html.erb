@@ -1,28 +1,32 @@
 <h2>Adventure: <%= @adventure.name %></h2>
 <p>Status: <%= @adventure.status %></p>
+<p>Created By: <%= @adventure.user.email %></p>
 <p>Description: <%= @adventure.description %></p>
 <%= image_tag @adventure.image, :class => 'scene' %>
 <p>Click Here to Play!</p>
 
-<hr>
 
-<h2>Editor Options!</h2>
-<p>The Current Adventure - 
-  <%= link_to 'Edit', edit_adventure_path(@adventure.id) %> | 
-  <%= link_to 'Delete', adventure_path(@adventure.id), :method => 'delete' %>
-</p>
+<% if user_signed_in? %>
+  <hr>
 
-<h3>Scenes in this Adventure</h3>
-<ul>
-  <% @adventure.scenes.each do |scene| %>
-    <li><%= link_to(scene.title,scene) %></li>
-  <% end %>
-</ul>
+  <h2>Editor Options!</h2>
+  <p>The Current Adventure - 
+    <%= link_to 'Edit', edit_adventure_path(@adventure.id) %> | 
+    <%= link_to 'Delete', adventure_path(@adventure.id), :method => 'delete' %>
+  </p>
 
-<h3>Orphaned Scenes</h3>
-<p>Scenes that have no destinations but are not flagged as the end of an adventure</p>
-<ul>
-  <% @orphans.each do |scene| %>
-    <li><%= link_to(scene.title,scene) %></li>
-  <% end %>
-</ul>
+  <h3>Scenes in this Adventure</h3>
+  <ul>
+    <% @adventure.scenes.each do |scene| %>
+      <li><%= link_to(scene.title,scene) %></li>
+    <% end %>
+  </ul>
+
+  <h3>Orphaned Scenes</h3>
+  <p>Scenes that have no destinations but are not flagged as the end of an adventure</p>
+  <ul>
+    <% @orphans.each do |scene| %>
+      <li><%= link_to(scene.title,scene) %></li>
+    <% end %>
+  </ul>
+<% end %>

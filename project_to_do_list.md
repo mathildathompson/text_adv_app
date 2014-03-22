@@ -2,6 +2,7 @@
 
 ###Must Have
 
+* Add a username to User model to display who created the adventure
 * Add validations to models
 * Flag the start point of an adventure (first link)
 * Link a scene to an existing scene (allow mutli paths)
@@ -9,9 +10,7 @@
 
 ###Nice to Have
 
-* Add an image to Adventures
 * Restrict users to only edit their own adventures
-
 * Setup Game 'so progress is tracked and scenes visited are tracked'
 
 
