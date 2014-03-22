@@ -11,3 +11,11 @@
     <li><%= link_to(scene.title,scene) %></li>
   <% end %>
 </ul>
+
+<h3>Orphaned Scenes</h3>
+<p>Scenes that have no destinations but are not flagged as the end of an adventure</p>
+<ul>
+  <% @orphans.each do |scene| %>
+    <li><%= link_to(scene.title,scene) %></li>
+  <% end %>
+</ul>

@@ -6,6 +6,15 @@ class AdventuresController < ApplicationController
 
   def show
     @adventure = Adventure.find params[:id]
+
+    @orphans = []
+    @adventure.scenes.each do |scene|
+      if scene.destinations.empty? #&& scene.end = false
+        @orphans << scene
+      end
+    end
+
+    # binding.pry
   end
 
   def new

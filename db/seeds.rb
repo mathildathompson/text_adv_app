@@ -27,7 +27,24 @@ scene.end = false
 scene.multi_visit = true
 scene.save
 
+scene2 = Scene.new
+scene2.title = "On the Road"
+scene2.first_visit = "As you walk down the road, you see a group of 5 approaching you. As you get closer you know they mean business"
+scene2.description = "The five standing in front of you are armed and looking for a fight, two have automatic weapons, one has a machete and the other two appear to have concealed weapons"
+scene2.image = "http://media.npr.org/assets/img/2012/08/29/the-day-movie-image-1_wide-77377d00ddd66ee3b1bf3895258d617f4d5e3899-s6-c30.jpg"
+scene2.end = false
+scene2.multi_visit = true
+scene2.save
+
 user.adventures << adv
 adv.scenes << scene
+adv.scenes << scene2
+
+scene.destinations << scene2
+
+path = scene.paths.first
+path.description = "Walk down the road?"
+path.save
+
 
 
