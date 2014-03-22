@@ -3,3 +3,12 @@
 <p><%= @scene.first_visit %></p>
 <p><%= @scene.description %></p>
 <p><%= link_to 'Edit', edit_scene_path(@scene.id) %> | <%= link_to 'Delete', scene_path(@scene.id), :method => 'delete' %></p>
+
+<ul>
+  <% @scene.destinations.each do |destination| %>
+    <li><%= link_to destination.title, destination %></li>
+  <% end %>
+</ul>
+
+<h3>Orphaned Scenes</h3>
+<p>Scenes that have no destinations but are not flagged as the end of an adventure</p>

@@ -31,23 +31,25 @@ Scene
 * Multi visit y/n (does this option dissapear after first visit)
 * End = Y or N (if Y, must restart the adventure)
 * Options[] => Links to other Scenes
+* Soundhound API? to play music
 
 Game (to save progress)
 
 * current scene
 * scenes visited
-* items
+* itemization - required to progress through certain areas
 * description? hair color etc...
 
 ###Relationships
 
-Building an adventure:-
+Building an adventure (signup required):-
 User has many adventures
 Adventure has many scenes
 
 Playing an adventure:-
 A User has many games
 A game is linked to a scene in an adventure (a save game so to speak)
+A scene is linked to other scenes (destinations)
 
 - - -
 ##Design Idea
@@ -64,6 +66,18 @@ Popular adventures could trend on the front page?
 - - -
 ##Challenges?
 
+How will I alternate between the state of building an adventure and playing one
+
+How to flag the starting point of the adventure, techincally this is a one to one relationship between the adventure and the scenes
+
 How will I map the adventure so it can be viewed when designing an adventure?
 
-Something to find dead ends
+Remove the first visit text on subsequent visits
+
+Remove options to revisit the same location
+
+Scenes have a relationship with scenes!!!
+
+How to find dead ends
+
+How to allow users to simply link scenes
