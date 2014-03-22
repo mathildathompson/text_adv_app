@@ -8,13 +8,56 @@ nav {
   background-color: black;
    li {
     display: inline-block;
+
     a {
       color: white;
       padding-right: 10px;
     }//a
+
+    p {
+      margin: 0;
+    }//p
   }//li
 }//nav
 
+//----------------------------
+// ADVENTURES - INDEX
+//----------------------------
+ul.adv-list {
+  list-style: none;
+}
+
+img.thumb {
+  max-width: 150px;
+}
+
+//----------------------------
+// ADVENTURES - FORM
+//----------------------------
+
+form.adv-form {
+
+  div.form-field {
+    padding: 5px 0;
+
+    label {
+      display: inline-block;
+      width: 100px;
+      // vertical-align: middle;
+    }//label
+
+    input {
+      width: 700px;
+    }
+
+    textarea {
+      width: 700px;
+      height: 144px;  
+    }
+  }//div.form-field
+}//form.adv-form
+
+//OTHER
 img.scene {
   max-width: 500px;
 }

@@ -2,6 +2,7 @@
 
 ###Must Have
 
+* Automatically create an opening scene for a new adventure, prevent this from being deleted!
 * Add a username to User model to display who created the adventure
 * Add validations to models
 * Flag the start point of an adventure (first link)
@@ -10,6 +11,7 @@
 
 ###Nice to Have
 
+* Display a preview of each adventure when viewing
 * Restrict users to only edit their own adventures
 * Setup Game 'so progress is tracked and scenes visited are tracked'
 

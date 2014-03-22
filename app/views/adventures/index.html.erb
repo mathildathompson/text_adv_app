@@ -1,7 +1,12 @@
 <h2>Our Adventures</h2>
 
-<ul>
+<ul class="adv-list">
   <% @adventures.each do |adv| %>
-    <li><%= link_to adv.name, adv %></li>
+    <li>
+      <%= link_to(adv, {}) do %>
+        <%= image_tag adv.image, :class => 'thumb' %>
+        <p><%= adv.name %></p>
+      <% end %>
+    </li>
   <% end %>
 </ul>
