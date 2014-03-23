@@ -21,10 +21,10 @@ class Scene < ActiveRecord::Base
   belongs_to :adventure
   #self-join relationships
   has_many(:paths, :foreign_key => :scene_id, :dependent => :destroy)
-  has_many :destinations, :through => :paths, :source => :destination
+  has_many(:destinations, :through => :paths, :source => :destination)
 
-  has_many(:reverse_paths, :class_name => :Path,
-      :foreign_key => :destination_id, :dependent => :destroy)
+  has_many(:reverse_paths, :class_name => :Path, :foreign_key => :destination_id, :dependent => :destroy)
+  #has_many(:origins, :through => :reverse_paths, :source => :scene)
 
   #validations
   validates :title, :presence => true

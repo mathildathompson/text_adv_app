@@ -6,6 +6,8 @@
 
 ###Must Have
 
+* Link scene option removed when scene = 'end'
+* If a scene is flagged as the end, delete all destinations?
 * Prevent deletion of the opening scene - I have removed the link, but how to validate this?
 * Prevent deletion of a scene if it has paths to other scenes??
 * Add validations to models

@@ -10,7 +10,18 @@ class ScenesController < ApplicationController
     @scene = Scene.find params[:id]
 
     #to allow linking to other scenes in the same adventure
-    #@adv_scenes = @scene.adventure.scenes.where("id <> #{@scene.id}")
+    adv_scenes = @scene.adventure.scenes.where("id <> #{@scene.id}")
+
+    #how to exclude scenes that this scene already links to?
+    @link_options = []
+    adv_scenes.each do |scene|
+      unless @scene.destinations.include? scene
+        @link_options.push [scene.title,scene.id]
+      end #unless
+    end #adv_scenes.each
+
+    # binding.pry
+
   end
 
   def edit

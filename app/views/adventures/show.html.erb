@@ -9,7 +9,8 @@
   <hr>
 
   <h2>Editor Options!</h2>
-  <p>The Current Adventure - 
+  <h3>The Current Adventure</h3>
+  <p>
     <%= link_to 'Edit', edit_adventure_path(@adventure.id) %> | 
     <%= link_to 'Delete', adventure_path(@adventure.id), :method => 'delete' %>
   </p>
@@ -22,7 +23,11 @@
   </ul>
 
   <h3>Orphaned Scenes</h3>
-  <p>Scenes that have no destinations but are not flagged as the end of an adventure</p>
+  <p>Scenes that have no origin scene (a player can never get to here)</p>
+
+  <ul><li><b>Need this added!</b></li></ul>
+
+  <p>Scenes that have no destinations but AND are not flagged as the end of an adventure</p>
   <ul>
     <% @orphans.each do |scene| %>
       <li><%= link_to(scene.title,scene) %></li>
