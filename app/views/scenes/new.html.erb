@@ -2,10 +2,12 @@
 
 <p>This scene will be linked to "<%= @origin.title %>"</p>
 
-<%= form_for @scene, :url => "/scenes/#{@origin.id}" do |f| %>
+<%= render 'errors' %>
+
+<%= form_for @scene,{:url => "/scenes/#{@origin.id}", :html => {:class => "scene-form"}} do |f| %>
   <!-- Used to Populate the Path "Description" -->
   <div class="form-field">
-    <%= label_tag 'Path Description' %>
+    <%= label_tag 'Path Text' %>
     <%= text_field_tag 'path_desc' %>
   </div>
   <!-- Used to Populate the new Scene Object -->
@@ -26,12 +28,12 @@
     <%= f.url_field :image %>
   </div>
   <div class="form-field">
-    <%= f.label :end %>
-    <%= f.check_box :end %>
-  </div>
-  <div class="form-field">
     <%= f.label :multi_visit %>
     <%= f.check_box :multi_visit, :checked => true %>
+  </div>
+  <div class="form-field">
+    <%= f.label :end %>
+    <%= f.check_box :end %>
   </div>
   <%= f.submit %>
 <% end %>

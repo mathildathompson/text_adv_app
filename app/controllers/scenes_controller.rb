@@ -8,6 +8,9 @@ class ScenesController < ApplicationController
 
   def show
     @scene = Scene.find params[:id]
+
+    #to allow linking to other scenes in the same adventure
+    #@adv_scenes = @scene.adventure.scenes.where("id <> #{@scene.id}")
   end
 
   def edit
@@ -45,21 +48,22 @@ class ScenesController < ApplicationController
     #find the origin to this scene for linking (a path)
     origin = Scene.find params[:origin_id]
 
-    #add the path to the new scene to the origin scene
-    origin.destinations << @scene
-
-    #get the path between the origin and this new scene so we can set its text
-    path = origin.paths.where("destination_id = ?",@scene.id).first
-    path.description = params[:path_desc]
-    path.save
-
     #add the scene to the same adventure as the origin
     @scene.adventure = origin.adventure
 
     if @scene.save
+
+      #add the path to the new scene to the origin scene
+      origin.destinations << @scene
+
+      #get the path between the origin and this new scene so we can set its text
+      path = origin.paths.where("destination_id = ?",@scene.id).first
+      path.description = params[:path_desc]
+      path.save
+
       redirect_to @scene
     else
-      render 'new_link'
+      render 'new'
     end
   end
 

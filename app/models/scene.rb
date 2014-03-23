@@ -26,4 +26,8 @@ class Scene < ActiveRecord::Base
   has_many(:reverse_paths, :class_name => :Path,
       :foreign_key => :destination_id, :dependent => :destroy)
 
+  #validations
+  validates :title, :presence => true
+  validates :description, :presence => true
+
 end

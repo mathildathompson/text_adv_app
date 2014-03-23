@@ -28,4 +28,6 @@ class User < ActiveRecord::Base
   attr_accessible :email, :username, :password
   #relationships
   has_many :adventures
+  #validations
+  validates :username, :presence => true
 end

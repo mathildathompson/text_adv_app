@@ -18,5 +18,11 @@ class Adventure < ActiveRecord::Base
   attr_accessible :user_id, :name, :description, :image, :status, :start_scene_id
   #relationships
   belongs_to :user
-  has_many :scenes
+  has_many :scenes, :dependent => :destroy
+  #validations
+  validates :name, :presence => true
+  validates :description, :presence => true
+
+  # no_whitespace = /\A[\S]\z/i
+  # validates :customurl,  :format => { :with => no_whitespace }
 end

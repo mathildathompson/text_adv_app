@@ -75,8 +75,11 @@ scene3.end = false
 scene3.multi_visit = true
 scene3.save
 
+#setup tthe relationships
 user.adventures << adv2
+adv2.scenes << scene3
 
+#set the starting scene
 adv2.start_scene_id = scene3.id
 adv2.save
 
