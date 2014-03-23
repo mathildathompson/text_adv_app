@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 20140322013402) do
     t.string   "status"
     t.text     "description"
     t.text     "image"
+    t.integer  "start_scene_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -55,6 +56,7 @@ ActiveRecord::Schema.define(version: 20140322013402) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.string   "username"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

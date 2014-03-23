@@ -1,10 +1,9 @@
 <h2>Adventure: <%= @adventure.name %></h2>
 <p>Status: <%= @adventure.status %></p>
-<p>Created By: <%= @adventure.user.email %></p>
+<p>Created By: <%= @adventure.user.username %></p>
 <p>Description: <%= @adventure.description %></p>
 <%= image_tag @adventure.image, :class => 'scene' %>
-<p>Click Here to Play!</p>
-
+<p><%= link_to 'Click Here to Play!', scene_path(@adventure.start_scene_id) %></p>
 
 <% if user_signed_in? %>
   <hr>

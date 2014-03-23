@@ -11,6 +11,7 @@ Adventure.destroy_all
 Scene.destroy_all
 
 user = User.new
+user.username = "Nizmox"
 user.email = "test@test.com"
 user.password = "test1234"
 user.password_confirmation = "test1234"
@@ -47,6 +48,10 @@ user.adventures << adv
 adv.scenes << scene
 adv.scenes << scene2
 
+#set the start scene
+adv.start_scene_id = scene.id
+adv.save
+
 #create scene to scene relationship
 scene.destinations << scene2
 
@@ -59,10 +64,21 @@ path.save
 adv2 = Adventure.new(:name => 'No-one No-where', :status => 'Draft')
 adv2.description = "What if you woke up and the entire world had vanished without a trace?"
 adv2.image = 'http://i.dailymail.co.uk/i/pix/2011/09/04/article-2033551-0DB21EA400000578-387_964x642.jpg'
-adv2.user_id = user.id
 adv2.save
 
-user.adventures < adv2
+scene3 = Scene.new
+scene3.title = "The bedroom"
+scene3.first_visit = "You open your eyes and glance round the room."
+scene3.description = "Rock band posters line the walls of bands you haven't liked or listened to in years. But your parents liked it this way, it gave them the sense that their baby still lives at home. *yuck!*"
+scene3.image = "http://uglyhousephotos.com/wordpress/wp-content/uploads/2011/01/110107a.jpg"
+scene3.end = false
+scene3.multi_visit = true
+scene3.save
+
+user.adventures << adv2
+
+adv2.start_scene_id = scene3.id
+adv2.save
 
 
 

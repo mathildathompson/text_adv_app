@@ -6,6 +6,7 @@ class CreateAdventures < ActiveRecord::Migration
       t.string :status
       t.text :description
       t.text :image
+      t.integer :start_scene_id
       t.timestamps
     end
   end

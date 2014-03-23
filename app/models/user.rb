@@ -13,6 +13,7 @@
 #  last_sign_in_at        :datetime
 #  current_sign_in_ip     :string(255)
 #  last_sign_in_ip        :string(255)
+#  username               :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
 #
@@ -23,6 +24,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  #attributes
+  attr_accessible :email, :username, :password
   #relationships
   has_many :adventures
 end

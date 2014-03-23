@@ -17,6 +17,8 @@ class AdventuresController < ApplicationController
       end
     end
 
+    #binding.pry
+
   end
 
   def new
@@ -25,11 +27,23 @@ class AdventuresController < ApplicationController
 
   def create
 
-    @adventure = current_user.adventure.new(params[:adventure])
+    #create a new adventure for the logged in user and set status to draft
+    @adventure = current_user.adventures.new(params[:adventure])
     @adventure.status = 'Draft'
-    @adventure.user_id = current_user.id
 
     if @adventure.save
+      #create a scene
+      scene = Scene.new(:title => 'First Scene', :description => 'Opening Scene Text Here...', :multivisit => true, :end => false)
+
+      #add this to adventure.scenes
+      @adventure.scenes << scene
+
+      #set this as the first scene
+      @adventure.start_scene_id = scene.id
+
+      #save again
+      @adventure.save
+
       redirect_to @adventure
     else
       render 'new'

@@ -1,12 +1,15 @@
 #Project To Do List
 
+###Bugs
+
+
+
 ###Must Have
 
-* Automatically create an opening scene for a new adventure, prevent this from being deleted!
-* Add a username to User model to display who created the adventure
-* Add validations to models
-* Flag the start point of an adventure (first link)
+* Prevent deletion of the opening scene
+* Prevent deletion of a scene if it has paths to other scenes??
 * Link a scene to an existing scene (allow mutli paths)
+* Add validations to models
 * Track visited scenes, exclude scenes where multivisit = no
 
 ###Nice to Have
@@ -19,3 +22,6 @@
 ###Ask Instructors
 
 * For scenes, New and Edit are quite similar, how to fix this? Forms differ slightly (in how it posts)
+* How best to link to the first scene
+* Can I use Cancan to lock down permissions on modifying content
+* Setup the relationship for a scene to find it's origins
