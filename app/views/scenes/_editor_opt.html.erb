@@ -12,7 +12,7 @@
   </p>
 
 <!-- ORIGIN SCENES SECTION -->
-<h3>Origin scenes (Scenes that have a path to here)</h3>
+<h3>Origin scenes (Scenes that have a track to here)</h3>
 
 <!-- if this scene has any origins display them -->
 <% if @scene.origins.any? %>
@@ -23,25 +23,25 @@
   </ul>
 <!-- if this scene is not the start scene display an error -->
 <% elsif @scene.not_start? %>
-  <p style="color:red; font-weight:bold;">Oops! This is an Orphan! No other scenes have paths to here!</p>
-<% end %> <!-- END OF if @scene.paths.any? -->
+  <p style="color:red; font-weight:bold;">Oops! This is an Orphan! No other scenes have tracks to here!</p>
+<% end %> <!-- END OF if @scene.origins.any? -->
 
 <!-- if this is an end scene, remove these options -->
 <% if @scene.end != true %>
-  <!-- allow the user to create a new scene and auto link this scene (create a path) to the current scene -->
-  <h3>Create a New Scene and Add a Path from the current scene to this New Scene</h3>
+  <!-- allow the user to create a new scene and auto link this scene (create a track) to the current scene -->
+  <h3>Create a New Scene and Add a Track from the current scene to this New Scene</h3>
   <!-- create a link to -->
-  <p><%= link_to 'Create Scene and Path', new_scene_path(:origin_id => @scene.id) %>
+  <p><%= link_to 'Create Scene and Track', new_scene_path(:origin_id => @scene.id) %>
 
   <!-- option to allow user to create a new scene and link to the current scene -->
-  <h3>Create a New Path to for this scene</h3>
+  <h3>Create a New Track to for this scene</h3>
 
-  <%= form_tag paths_path do %> 
+  <%= form_tag tracks_path do %> 
     <%= hidden_field_tag('origin_id',@scene.id) %>
-    <%= label_tag 'Path Description' %>
+    <%= label_tag 'Track Description' %>
     <%= text_field_tag :description %>
     <%= select_tag(:destination_id, options_for_select(@link_options)) %>
-    <%= submit_tag 'Add Path' %>  
+    <%= submit_tag 'Add Track' %>  
   <% end %><!-- END OF form_tag -->
 <!-- this is the end scene, so options removed -->
 <% else %>

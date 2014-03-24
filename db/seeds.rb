@@ -55,9 +55,9 @@ adv.save
 #create scene to scene relationship
 scene.destinations << scene2
 
-path = scene.paths.first
-path.description = "Walk down the road?"
-path.save
+track = scene.tracks.first
+track.description = "Walk down the road?"
+track.save
 
 #----------------------------------------
 

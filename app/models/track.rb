@@ -1,17 +1,19 @@
 # == Schema Information
 #
-# Table name: paths
+# Table name: tracks
 #
 #  id             :integer          not null, primary key
-#  scene_id       :integer          not null
+#  origin_id      :integer          not null
 #  destination_id :integer          not null
 #  description    :text
 #
 
-class Path < ActiveRecord::Base
+class Track < ActiveRecord::Base
+  #attributes
+  attr_accessible :origin_id, :destination_id, :description
+  
   #relationships
-  belongs_to :scene, :class_name => :Scene
+  belongs_to :origin, :class_name => :Scene
   belongs_to :destination, :class_name => :Scene
 
-  attr_accessible :scene_id, :destination_id, :description
 end

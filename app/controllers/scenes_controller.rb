@@ -15,6 +15,7 @@ class ScenesController < ApplicationController
     #to allow linking to other scenes in the same adventure
     adv_scenes = @scene.adventure.scenes.where("id <> #{@scene.id}")
 
+    ##### REFACTOR THIS WITH SELECT!!!!! #####
     #how to exclude scenes that this scene already links to?
     @link_options = []
     adv_scenes.each do |scene|
@@ -62,7 +63,7 @@ class ScenesController < ApplicationController
     #create a new scene
     @scene = Scene.new(params[:scene])
 
-    #find the origin to this scene for linking (a path)
+    #find the origin to this scene for linking (a track)
     origin = Scene.find params[:origin_id]
 
     #add the scene to the same adventure as the origin
@@ -70,13 +71,13 @@ class ScenesController < ApplicationController
 
     if @scene.save
 
-      #add the path to the new scene to the origin scene
+      #add the track to the new scene to the origin scene
       origin.destinations << @scene
 
-      #get the path between the origin and this new scene so we can set its text
-      path = origin.paths.where("destination_id = ?",@scene.id).first
-      path.description = params[:path_desc]
-      path.save
+      #get the track between the origin and this new scene so we can set its text
+      track = origin.tracks.where("destination_id = ?",@scene.id).first
+      track.description = params[:track_desc]
+      track.save
 
       redirect_to @scene
     else

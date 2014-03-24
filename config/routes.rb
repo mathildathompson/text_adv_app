@@ -11,6 +11,6 @@ TextAdvApp::Application.routes.draw do
   resources :scenes
 
   #path routes
-  resources :paths, :only => [:create,:destroy]
+  resources :tracks, :only => [:create,:destroy]
   
 end

@@ -8,22 +8,22 @@
 <!-- determine if this is the end of the adventure -->
 <% if @scene.end %>
   <p>You've reached the end of this adventure, <%= link_to 'play again?', adventure_path(@scene.adventure) %></p>
-<!-- it's not the end so display the available paths -->
+<!-- it's not the end so display the available tracks -->
 <% else %>
-  <h3>Paths</h3>
-  <% if @scene.paths.any? %>
+  <h3>Tracks</h3>
+  <% if @scene.tracks.any? %>
     <ul>
-      <% @scene.paths.each do |path| %>
+      <% @scene.tracks.each do |track| %>
         <li>
-          <%= link_to path.description, scene_path(path.destination_id) %>
+          <%= link_to track.description, scene_path(track.destination_id) %>
           <% if user_signed_in? && current_user.id == @scene.adventure.user_id %>
-            - <%= link_to 'Delete', path_path(path.id), :method => 'delete' %> - This will delete the path NOT the scene itself!
+            - <%= link_to 'Delete', track_path(track.id), :method => 'delete' %> - This will delete the track NOT the scene itself!
           <% end %> <!-- user_signed_in? -->
         </li>
-      <% end %> <!-- @scene.paths.each -->
+      <% end %> <!-- @scene.tracks.each -->
     </ul>
   <% else %>
-    <p style="color:red; font-weight:bold;">Oops! This is an Orphan! It's not an end scene but it has no paths!?</p>
+    <p style="color:red; font-weight:bold;">Oops! This is an Orphan! It's not an end scene but it has no tracks!?</p>
   <% end %> <!-- if @scene.paths.any? -->
 <% end %><!-- if @scene.end -->
 

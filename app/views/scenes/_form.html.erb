@@ -12,13 +12,14 @@
 
 <!-- Display the form -->
 <%= form_for @scene, :html => {:class => "scene-form"} do |f| %>
-  <!-- Used to store Origin ID -->
-  <%= hidden_field_tag('origin_id',@origin.id) %>
-  <!-- Used to Populate the Path "Description" -->
+  <!-- On the new action only... -->
   <% if params[:action] == 'new' %>
+    <!-- Origin ID is required to link this new scene to the scene the user clicked the link from -->
+    <%= hidden_field_tag('origin_id',@origin.id) %>
+    <!-- Used to Populate the "Description" on a newly created Track -->
     <div class="form-field">
-      <%= label_tag 'Path Text' %>
-      <%= text_field_tag 'path_desc', nil, {:required => true, :autofocus => true} %>
+      <%= label_tag 'Track Text' %>
+      <%= text_field_tag 'track_desc', nil, {:required => true, :autofocus => true} %>
     </div>
   <% end %>
   <!-- Used to Populate the new Scene Object -->
