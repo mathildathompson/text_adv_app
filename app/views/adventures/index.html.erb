@@ -4,8 +4,13 @@
   <% @adventures.each do |adv| %>
     <li>
       <%= link_to(adv, {}) do %>
+        <!-- preview adventure -->
         <%= image_tag adv.image, :class => 'thumb' %>
-        <p><%= adv.name %></p>
+        <div class="adv-desc">
+          <h2><%= adv.name %></h2>
+          <p><%= adv.description %></p>
+        </div>
+        <!-- end of preview adventure -->
       <% end %>
     </li>
   <% end %>

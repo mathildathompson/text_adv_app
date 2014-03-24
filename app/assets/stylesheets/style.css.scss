@@ -5,135 +5,63 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+
+  //required due to bootstrap fix navbar
+  padding-top: 70px;
 }
 
-#container {
-  max-width: 960px;
-  margin: 0 auto;
-  background-color: rgba(255,255,255,0.8)
+div.container {
+  // max-width: 960px;
+  // margin: 0 auto;
+  background-color: rgba(255,255,255,0.8);
+  margin-bottom: 15px;
 }
 
 h1#site-heading {
-  margin: 20px 0 0 0;
-  padding: 10px;
+  // margin: 20px 0 0 0;
+  // padding: 10px;
   font-size: 48px;
   text-align: center;
   text-transform: uppercase;
   text-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
 }
 
-nav {
-  padding: 0 20px;
-  background-color: black;
-   li {
-    display: inline-block;
-
-    a {
-      display: inline-block;
-      padding: 10px;
-      text-decoration: none;
-      color: white;
-
-      &:hover {
-        background-color: white;
-        color: black;
-      }//a:hover
-    }//a
-
-    p {
-      margin: 0;
-    }//p
-  }//li
-}//nav
-
-div#content {
-  padding: 20px;
-}
-
-//----------------------------
+//--------------------
 // ADVENTURES - INDEX
-//----------------------------
+//--------------------
 ul.adv-list {
   list-style: none;
-}
+  padding: 0;
 
-img.thumb {
-  max-width: 150px;
-}
+  li {
 
-//----------------------------
-// ADVENTURES - FORM
-//----------------------------
+    a {
+      text-decoration: none;
+      color: black;
 
-form.adv-form {
+      img.thumb {
+        display: inline-block;
+        vertical-align: top;
+        //max-height: 200px;
+        height: 120px;
+        //height: 100%;
+      }//img:.thumb
 
-  div.form-field {
-    padding: 5px 0;
+      div.adv-desc {
+        display: inline-block;
+        vertical-align: top;
+        padding: 10px;
+        height: 120px;
+        background-color: pink;
+      }//div.adv-desc
+    }//a
+  }//li
+}//ul.adv-list
 
-    label {
-      display: inline-block;
-      width: 100px;
-      // vertical-align: middle;
-    }//label
-
-    input {
-      width: 700px;
-    }
-
-    textarea {
-      width: 700px;
-      height: 144px;  
-    }
-  }//div.form-field
-}//form.adv-form
-
-//----------------------------
-// SCENE - FORM
-//----------------------------
-form.scene-form {
-
-  div.form-field {
-    padding: 5px 0;
-
-    label {
-      display: inline-block;
-      width: 100px;
-      // vertical-align: middle;
-    }//label
-
-    input {
-      width: 700px;
-    }
-
-    textarea {
-      width: 700px;
-      height: 144px;  
-    }
-  }//div.form-field
-}//form.adv-form
-
-//----------------------------
+//--------------------
 // SCENE - SHOW
-//----------------------------
-
-a.adv-title {
-  display: block;
-  padding: 10px;
-  background-color: gray;
-  text-align: center;
-  text-decoration: none;
-  color: white;
-  font-size: 28px;
-}
-
-//----------------------------
-
-//OTHER
+//--------------------
 img.scene {
   max-width: 500px;
-  max-height: 400px;
 }
 
-div.field_with_errors {
-  //height: 0;
-}

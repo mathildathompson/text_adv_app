@@ -1,6 +1,6 @@
 class TracksController < ApplicationController
   def create
-    track = Track.new(:origin_id => params[:origin_id], :destination_id => params['destination_id'])
+    track = Track.new(:origin_id => params[:origin_id], :destination_id => params[:destination_id])
     track.description = params[:description]
     track.save
 

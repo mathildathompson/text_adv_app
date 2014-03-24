@@ -11,13 +11,6 @@ class AdventuresController < ApplicationController
 
   def show
     @adventure = Adventure.find params[:id]
-
-    #check for orphaned scenes
-    @orphans = @adventure.scenes.select { |scene| scene.origins.empty? && scene.not_start? }
-
-    #check for dead ends
-    @dead_ends = @adventure.scenes.select { |scene| scene.destinations.empty? && scene.end == false }
-
   end
 
   def new

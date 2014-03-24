@@ -51,6 +51,9 @@ gem 'sextant'
 #devise authentication
 gem 'devise'
 
+#bootstrap styling
+gem 'bootstrap-sass'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

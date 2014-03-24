@@ -18,7 +18,7 @@
   <p>Scenes which have no paths to reach it (no origin scenes), a user can never get to this scene.</p>
 
   <ul>
-    <% @orphans.each do |scene| %>
+    <% @adventure.orphans.each do |scene| %>
       <li><%= link_to(scene.title,scene) %></li>
     <% end %>
   </ul>
@@ -26,7 +26,7 @@
   <h3>Dead End Scenes</h3>
   <p>Scenes that have no destinations (no paths to other scenes) AND are not flagged as the end of an adventure</p>
   <ul>
-    <% @dead_ends.each do |scene| %>
+    <% @adventure.dead_ends.each do |scene| %>
       <li><%= link_to(scene.title,scene) %></li>
     <% end %>
   </ul>

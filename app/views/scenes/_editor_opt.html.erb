@@ -34,13 +34,14 @@
   <p><%= link_to 'Create Scene and Track', new_scene_path(:origin_id => @scene.id) %>
 
   <!-- option to allow user to create a new scene and link to the current scene -->
-  <h3>Create a New Track to for this scene</h3>
+  <h3>Create a New Track from this scene, to another scene</h3>
 
   <%= form_tag tracks_path do %> 
     <%= hidden_field_tag('origin_id',@scene.id) %>
-    <%= label_tag 'Track Description' %>
-    <%= text_field_tag :description %>
-    <%= select_tag(:destination_id, options_for_select(@link_options)) %>
+    <%= label_tag 'Track Description:' %>
+    <%= text_field_tag :description, nil, :required => true %>
+    <%= label_tag 'Destination Scene:' %>
+    <%= select_tag(:destination_id, options_for_select(@link_options), :required => true) %>
     <%= submit_tag 'Add Track' %>  
   <% end %><!-- END OF form_tag -->
 <!-- this is the end scene, so options removed -->

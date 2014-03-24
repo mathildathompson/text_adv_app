@@ -5,28 +5,82 @@
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= csrf_meta_tags %>
+  <!-- added for mobile styling with bootstrap -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
 </head>
 <body>
 
-  <div id="container">
-    <h1 id="site-heading">Text Adventure Builder</h1>
-    <nav>
-      <li><%= link_to 'Home', home_path %></li>
-      <li><%= link_to 'Adventures', adventures_path %></li>
-      <li><%= link_to 'New Adventure', new_adventure_path %></li>
-      <li><%= link_to 'Guide / FAQ', '/guide' %></li>
-      <% if user_signed_in? %>
-          <li style="color:white"><p>You are logged in as <%= current_user.email %></p></li>
-          <li><%= link_to 'Logout', destroy_user_session_path, :method => 'delete' %></li>
-      <% else %>
-        <li><%= link_to 'Sign in', new_user_session_path %></li>
-        <li><%= link_to 'Sign up', new_user_registration_path %></li>
-      <% end %>
-    </nav>
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <%= link_to 'Text Adventure Builder', home_path, :class => 'navbar-brand' %>
+      </div>
 
-    <div id="content">
-      <%= yield %>
-    </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <!-- Left Links -->
+          <li class="active"><%= link_to 'Adventures', adventures_path %></li>
+          <li><%= link_to 'New Adventure', new_adventure_path %></li>
+          <li><%= link_to 'Guide / FAQ', '/guide' %></li>
+          <!-- Left Dropdown -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#">Action</a></li>
+              <li><a href="#">Another action</a></li>
+              <li><a href="#">Something else here</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Separated link</a></li>
+              <li class="divider"></li>
+              <li><a href="#">One more separated link</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!-- Left Search -->
+        <form class="navbar-form navbar-left" role="search">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Search">
+          </div>
+          <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+        <ul class="nav navbar-nav navbar-right">
+          <!-- Right Links -->
+          <!-- <li><p class="navbar-text" style="color: #ffffff">Logged in as yyy</p></li> -->
+          <!-- <li><a href="#">Link</a></li> -->
+          <!-- Right Dropdown Menu -->
+          <li class="dropdown">
+            <% if user_signed_in? %>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Logged in as <%= current_user.email %><b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to 'Edit Your Details', edit_user_registration_path %></li>
+                <li><%= link_to 'Logout', destroy_user_session_path, :method => 'delete' %></li>
+              </ul>
+            <% else %> <!-- user not signed in -->
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Options<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><%= link_to 'Sign in', new_user_session_path %></li>
+                <li><%= link_to 'Sign up', new_user_registration_path %></li>
+              </ul>
+            <% end %> <!-- if user_signed_in? -->
+          </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+  <div class="container">
+    
+    <h1 id="site-heading">Text Adventure Builder</h1>
+
+    <%= yield %>
     
   </div>
 
