@@ -17,6 +17,7 @@
 class Scene < ActiveRecord::Base
   #attributes
   attr_accessible :title, :first_visit, :description, :image, :end, :multi_visit, :adventure_id
+  
   #relationships
   belongs_to :adventure
   #self-join relationships
@@ -24,7 +25,7 @@ class Scene < ActiveRecord::Base
   has_many(:destinations, :through => :paths, :source => :destination)
 
   has_many(:reverse_paths, :class_name => :Path, :foreign_key => :destination_id, :dependent => :destroy)
-  #has_many(:origins, :through => :reverse_paths, :source => :scene)
+  # has_many(:origins, :through => :reverse_paths, :source => :scene)
 
   #validations
   validates :title, :presence => true

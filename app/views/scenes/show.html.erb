@@ -10,17 +10,21 @@
 <!-- it's not the end so display the available paths -->
 <% else %>
   <h3>Paths</h3>
-  <ul>
-    <% @scene.paths.each do |path| %>
-      <li>
-        <%= link_to path.description, scene_path(path.destination_id) %>
-        <% if user_signed_in? %>
-          - <%= link_to 'Delete', delete_path_path(path.id), :method => 'post' %>
-        <% end %> <!-- user_signed_in? -->
-      </li>
-    <% end %>
-  </ul>
-<% end %>
+  <% if @scene.paths.any? %>
+    <ul>
+      <% @scene.paths.each do |path| %>
+        <li>
+          <%= link_to path.description, scene_path(path.destination_id) %>
+          <% if user_signed_in? %>
+            - <%= link_to 'Delete', path_path(path.id), :method => 'delete' %>
+          <% end %> <!-- user_signed_in? -->
+        </li>
+      <% end %> <!-- @scene.paths.each -->
+    </ul>
+  <% else %>
+    <p style="color:red; font-weight:bold;">Oops! This is an Orphan! It's not an end scene but you've got no paths!?</p>
+  <% end %> <!-- @scene.paths.any? -->
+<% end %><!-- @scene.paths.any? -->
 
 <!-- if user is signed in present the editor options -->
 <% if user_signed_in? %>
@@ -35,16 +39,20 @@
       <!-- do not display the delete option if this is the start scene -->
       <% if @scene.adventure.start_scene_id != @scene.id %>
         - <%= link_to 'Delete', scene_path(@scene.id), :method => 'delete' %>
-      <% end %>
+      <% end %> <!-- @scene.adventure... -->
     </p>
+
+  <h3>Origin scenes (Scenes that have a path to here)</h3>
+  <p>To be added...</p>
   
   <!-- if this is an end scene, remove these options -->
   <% if @scene.end != true %>
     <!-- allow the user to create a new scene and auto link this scene (create a path) to the current scene -->
-    <h3>Create a New Scene and Link to this scene</h3>
-    <p><%= link_to 'Link Scene', new_scene_path(@scene.id) %>
+    <h3>Create a New Scene and add a Path from the current scene to this scene</h3>
+    <!-- create a link to -->
+    <p><%= link_to 'Create Scene and Path', new_scene_path(:origin_id => @scene.id) %>
 
-    <h3>Link this scene to an existing scene</h3>
+    <h3>Create a new Path to an existing scene</h3>
 
     <%= form_tag paths_path do %> 
       <%= hidden_field_tag('origin_id',@scene.id) %>

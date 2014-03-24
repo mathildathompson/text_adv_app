@@ -1,5 +1,5 @@
 class PathsController < ApplicationController
-  def new
+  def create
     path = Path.new(:scene_id => params[:origin_id], :destination_id => params['destination_id'])
     path.description = params[:description]
     path.save

@@ -6,23 +6,17 @@
 
 ###Must Have
 
-* Link scene option removed when scene = 'end'
+* Change back to RESTful routes using hidden fields
 * If a scene is flagged as the end, delete all destinations?
 * Prevent deletion of the opening scene - I have removed the link, but how to validate this?
-* Prevent deletion of a scene if it has paths to other scenes??
-* Add validations to models
 * Track visited scenes, exclude scenes where multivisit = no
 * Display 'Draft' adventures only for the creator, all users can see 'Published' adventures.
 
 ###Nice to Have
 
-* Display a preview of each adventure when viewing
 * Restrict users to only edit their own adventures
 * Setup Game 'so progress is tracked and scenes visited are tracked'
 * Prevent publishing an adventure if it has 'orphan scenes'
-
-* Link a scene to an existing scene (allow mutli paths)
-* Allow deletion of 'paths' but prevent deleting
 
 ###Ask Instructors
 

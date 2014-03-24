@@ -20,8 +20,6 @@ class ScenesController < ApplicationController
       end #unless
     end #adv_scenes.each
 
-    # binding.pry
-
   end
 
   def edit

@@ -4,11 +4,13 @@
 
 <%= render 'errors' %>
 
-<%= form_for @scene,{:url => "/scenes/#{@origin.id}", :html => {:class => "scene-form"}} do |f| %>
+<%= form_for @scene,{:html => {:class => "scene-form"}} do |f| %>
+  <!-- Used to store Origin ID -->
+  <%= hidden_field_tag('origin_id',@origin.id) %>
   <!-- Used to Populate the Path "Description" -->
   <div class="form-field">
     <%= label_tag 'Path Text' %>
-    <%= text_field_tag 'path_desc' %>
+    <%= text_field_tag 'path_desc', nil, {:required => true, :autofocus => true} %>
   </div>
   <!-- Used to Populate the new Scene Object -->
   <div class="form-field">
