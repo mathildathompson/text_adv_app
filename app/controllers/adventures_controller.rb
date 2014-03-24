@@ -9,11 +9,19 @@ class AdventuresController < ApplicationController
   def show
     @adventure = Adventure.find params[:id]
 
-    #check for orphaned scenes (where no destinations and not the end)
+    #check for orphaned scenes (scenes which have no origin scenes, i.e. there is no path to this scene)
     @orphans = []
     @adventure.scenes.each do |scene|
-      if scene.destinations.empty? && scene.end == false
+      if scene.origins.empty?
         @orphans << scene
+      end
+    end
+
+    #check for dead ends (where scene has no destinations and is not the end of the adventure)
+    @dead_ends = []
+    @adventure.scenes.each do |scene|
+      if scene.destinations.empty? && scene.end == false
+        @dead_ends << scene
       end
     end
 

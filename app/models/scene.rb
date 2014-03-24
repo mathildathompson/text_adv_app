@@ -25,10 +25,29 @@ class Scene < ActiveRecord::Base
   has_many(:destinations, :through => :paths, :source => :destination)
 
   has_many(:reverse_paths, :class_name => :Path, :foreign_key => :destination_id, :dependent => :destroy)
-  # has_many(:origins, :through => :reverse_paths, :source => :scene)
+  #Scene Model has a method called "origins" to find scenes with paths to the current scene
 
   #validations
   validates :title, :presence => true
   validates :description, :presence => true
+
+  #-------------------------------------------------------------------
+  
+  #returns the origin scenes (scenes with a path to the current scene)
+  def origins
+    #returns an array of the origin scene ids
+    origin_ids = Path.where("destination_id = #{self.id}").pluck(:scene_id)
+    #find the origin scenes
+    origins = Scene.where(:id => origin_ids)
+  end
+
+  #returns true if this scene is the start of an adventure
+  def start?
+    @start = self.adventure.start_scene_id == self.id
+  end
+
+  def not_start?
+    @not_start = self.adventure.start_scene_id != self.id
+  end
 
 end

@@ -16,54 +16,19 @@
         <li>
           <%= link_to path.description, scene_path(path.destination_id) %>
           <% if user_signed_in? %>
-            - <%= link_to 'Delete', path_path(path.id), :method => 'delete' %>
+            - <%= link_to 'Delete', path_path(path.id), :method => 'delete' %> - This will delete the path NOT the scene itself!
           <% end %> <!-- user_signed_in? -->
         </li>
       <% end %> <!-- @scene.paths.each -->
     </ul>
   <% else %>
     <p style="color:red; font-weight:bold;">Oops! This is an Orphan! It's not an end scene but you've got no paths!?</p>
-  <% end %> <!-- @scene.paths.any? -->
-<% end %><!-- @scene.paths.any? -->
+  <% end %> <!-- if @scene.paths.any? -->
+<% end %><!-- if @scene.end -->
 
 <!-- if user is signed in present the editor options -->
 <% if user_signed_in? %>
 
-  <hr>
-
-  <h2>Editor Options!</h2>
-  <h3>The Current Scene</h3>
-    <p>
-      <!-- edit link -->
-      <%= link_to 'Edit', edit_scene_path(@scene.id) %>
-      <!-- do not display the delete option if this is the start scene -->
-      <% if @scene.adventure.start_scene_id != @scene.id %>
-        - <%= link_to 'Delete', scene_path(@scene.id), :method => 'delete' %>
-      <% end %> <!-- @scene.adventure... -->
-    </p>
-
-  <h3>Origin scenes (Scenes that have a path to here)</h3>
-  <p>To be added...</p>
-  
-  <!-- if this is an end scene, remove these options -->
-  <% if @scene.end != true %>
-    <!-- allow the user to create a new scene and auto link this scene (create a path) to the current scene -->
-    <h3>Create a New Scene and add a Path from the current scene to this scene</h3>
-    <!-- create a link to -->
-    <p><%= link_to 'Create Scene and Path', new_scene_path(:origin_id => @scene.id) %>
-
-    <h3>Create a new Path to an existing scene</h3>
-
-    <%= form_tag paths_path do %> 
-      <%= hidden_field_tag('origin_id',@scene.id) %>
-      <%= label_tag 'Path Description' %>
-      <%= text_field_tag :description %>
-      <%= select_tag(:destination_id, options_for_select(@link_options)) %>
-      <%= submit_tag 'Add Path' %>  
-    <% end %><!-- form_tag -->
-  <!-- this is the end scene, so options removed -->
-  <% else %>
-    <p>Linking unavailable as this is an end scene!</p>
-  <% end %><!-- if @scene.end != true -->
+  <%= render 'editor_opt' %>
 
 <% end %><!-- if user_signed_in?

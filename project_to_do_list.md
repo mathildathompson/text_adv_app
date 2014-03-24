@@ -6,7 +6,9 @@
 
 ###Must Have
 
-* Change back to RESTful routes using hidden fields
+* When in scenes, Add a adventure name heading, with a link back to the adventure
+* Refactor my 'Path' model to use origin_id instead of scene_id
+* Add confirmation to deletes!
 * If a scene is flagged as the end, delete all destinations?
 * Prevent deletion of the opening scene - I have removed the link, but how to validate this?
 * Track visited scenes, exclude scenes where multivisit = no

@@ -20,6 +20,9 @@ class ScenesController < ApplicationController
       end #unless
     end #adv_scenes.each
 
+    #find origin scenes
+    @origins = @scene.origins
+
   end
 
   def edit
