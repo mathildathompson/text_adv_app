@@ -1,30 +1,3 @@
 <h2>Edit Scene</h2>
 
-<%= form_for @scene, :html => {:class => "scene-form"} do |f| %>
-  <!-- Used to Update the Scene Object -->
-  <div class="form-field">
-    <%= f.label :title %>
-    <%= f.text_field :title, :required => true %>
-  </div>
-  <div class="form-field">
-    <%= f.label :first_visit %>
-    <%= f.text_area :first_visit %>
-  </div>
-  <div class="form-field">
-    <%= f.label :description %>
-    <%= f.text_area :description, :required => true %>
-  </div>
-  <div class="form-field">
-    <%= f.label :image %>
-    <%= f.url_field :image %>
-  </div>
-  <div class="form-field">
-    <%= f.label :multi_visit %>
-    <%= f.check_box :multi_visit %>
-  </div>
-  <div class="form-field">
-    <%= f.label :end %>
-    <%= f.check_box :end %>
-  </div>
-  <%= f.submit %>
-<% end %>
+<%= render 'form' %>

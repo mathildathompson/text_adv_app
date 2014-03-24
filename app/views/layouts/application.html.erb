@@ -14,6 +14,7 @@
       <li><%= link_to 'Home', home_path %></li>
       <li><%= link_to 'Adventures', adventures_path %></li>
       <li><%= link_to 'New Adventure', new_adventure_path %></li>
+      <li><%= link_to 'Guide / FAQ', '/guide' %></li>
       <% if user_signed_in? %>
           <li style="color:white"><p>You are logged in as <%= current_user.email %></p></li>
           <li><%= link_to 'Logout', destroy_user_session_path, :method => 'delete' %></li>

@@ -2,40 +2,5 @@
 
 <p>This scene will be linked to "<%= @origin.title %>"</p>
 
-<%= render 'errors' %>
+<%= render 'form' %>
 
-<%= form_for @scene,{:html => {:class => "scene-form"}} do |f| %>
-  <!-- Used to store Origin ID -->
-  <%= hidden_field_tag('origin_id',@origin.id) %>
-  <!-- Used to Populate the Path "Description" -->
-  <div class="form-field">
-    <%= label_tag 'Path Text' %>
-    <%= text_field_tag 'path_desc', nil, {:required => true, :autofocus => true} %>
-  </div>
-  <!-- Used to Populate the new Scene Object -->
-  <div class="form-field">
-    <%= f.label :title %>
-    <%= f.text_field :title, :required => true %>
-  </div>
-  <div class="form-field">
-    <%= f.label :first_visit %>
-    <%= f.text_area :first_visit %>
-  </div>
-  <div class="form-field">
-    <%= f.label :description %>
-    <%= f.text_area :description, :required => true %>
-  </div>
-  <div class="form-field">
-    <%= f.label :image %>
-    <%= f.url_field :image %>
-  </div>
-  <div class="form-field">
-    <%= f.label :multi_visit %>
-    <%= f.check_box :multi_visit, :checked => true %>
-  </div>
-  <div class="form-field">
-    <%= f.label :end %>
-    <%= f.check_box :end %>
-  </div>
-  <%= f.submit %>
-<% end %>

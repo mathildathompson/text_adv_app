@@ -8,11 +8,10 @@
 
 * Refactor my 'Path' model to use origin_id instead of scene_id
 * Add confirmation to deletes!
-* Refactor Scene form so uses same form for new and edit
-* Remove First Visit and Multi Visit options AND Remove Game Model
-* Add FAQ page
 * Display 'Draft' adventures only for the creator, all users can see 'Published' adventures.
 * Check validations on models and links to delete!!!
+* Remove First Visit and Multi Visit options AND Remove Game Model
+* Update FAQ page
 
 * If a scene is flagged as the end, delete all destinations?
 * Prevent deletion of the opening scene - I have removed the link, but how to validate this?
