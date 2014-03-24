@@ -1,6 +1,9 @@
 class ScenesController < ApplicationController
 
+  #must be logged in to use these functions
   before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
+  #must be the owner to use these functions
+  before_filter :check_owner?, :only => [:update, :destroy]
 
   def index
     @scenes = Scene.all
@@ -40,9 +43,11 @@ class ScenesController < ApplicationController
   end
 
   def destroy
-    Scene.find(params[:id]).destroy
+    scene = Scene.find(params[:id])
+    adv = scene.adventure
+    scene.destroy
 
-    redirect_to scenes_path
+    redirect_to adv
   end
 
   #----------------NON-STANDARD-CRUD----------------
@@ -77,6 +82,13 @@ class ScenesController < ApplicationController
     else
       render 'new'
     end
+  end
+
+  private
+  #security to prevent updating if not your content
+  def check_owner?
+    scene = Scene.find(params[:id])
+    redirect_to scene if scene.adventure.user_id != current_user.id 
   end
 
 end

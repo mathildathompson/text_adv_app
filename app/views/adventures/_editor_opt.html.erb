@@ -1,4 +1,3 @@
-<% if user_signed_in? %>
   <hr>
 
   <h2>Editor Options!</h2>
@@ -10,7 +9,7 @@
 
   <h3>Scenes in this Adventure</h3>
   <ul>
-    <% @adventure.scenes.each do |scene| %>
+    <% @adventure.scenes.order(:id).each do |scene| %>
       <li><%= link_to(scene.title,scene) %></li>
     <% end %>
   </ul>
@@ -19,7 +18,7 @@
   <p>Scenes which have no paths to reach it (no origin scenes), a user can never get to this scene.</p>
 
   <ul>
-    <% @dead_ends.each do |scene| %>
+    <% @orphans.each do |scene| %>
       <li><%= link_to(scene.title,scene) %></li>
     <% end %>
   </ul>
@@ -27,8 +26,7 @@
   <h3>Dead End Scenes</h3>
   <p>Scenes that have no destinations (no paths to other scenes) AND are not flagged as the end of an adventure</p>
   <ul>
-    <% @orphans.each do |scene| %>
+    <% @dead_ends.each do |scene| %>
       <li><%= link_to(scene.title,scene) %></li>
     <% end %>
   </ul>
-<% end %>

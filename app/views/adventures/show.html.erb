@@ -5,4 +5,7 @@
 <%= image_tag @adventure.image, :class => 'scene' %>
 <p><%= link_to 'Click Here to Play!', scene_path(@adventure.start_scene_id) %></p>
 
-<%= render 'editor_opt' %>
+<!-- display editor options if user signed in and is the creator of this adventure -->
+<% if user_signed_in? && current_user.id == @adventure.user_id %>
+  <%= render 'editor_opt' %>
+<% end %>

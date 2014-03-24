@@ -1,6 +1,9 @@
 class AdventuresController < ApplicationController
 
+  #must be logged in to use these functions
   before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
+  #must be the owner to use these functions
+  before_filter :check_owner?, :only => [:update, :destroy]
 
   def index
     @adventures = Adventure.all
@@ -9,23 +12,11 @@ class AdventuresController < ApplicationController
   def show
     @adventure = Adventure.find params[:id]
 
-    #check for orphaned scenes (scenes which have no origin scenes, i.e. there is no path to this scene)
-    @orphans = []
-    @adventure.scenes.each do |scene|
-      if scene.origins.empty?
-        @orphans << scene
-      end
-    end
+    #check for orphaned scenes
+    @orphans = @adventure.scenes.select { |scene| scene.origins.empty? && scene.not_start? }
 
-    #check for dead ends (where scene has no destinations and is not the end of the adventure)
-    @dead_ends = []
-    @adventure.scenes.each do |scene|
-      if scene.destinations.empty? && scene.end == false
-        @dead_ends << scene
-      end
-    end
-
-    #binding.pry
+    #check for dead ends
+    @dead_ends = @adventure.scenes.select { |scene| scene.destinations.empty? && scene.end == false }
 
   end
 
@@ -80,6 +71,13 @@ class AdventuresController < ApplicationController
     Adventure.find(params[:id]).destroy
 
     redirect_to adventures_path
+  end
+
+  private
+  #security to prevent updating if not your content
+  def check_owner?
+    adventure = Adventure.find(params[:id])
+    redirect_to adventure if adventure.user_id != current_user.id 
   end
 
 end

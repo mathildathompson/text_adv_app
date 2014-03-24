@@ -1,3 +1,4 @@
+<%= link_to @scene.adventure.name, @scene.adventure, :class => 'adv-title' %>
 <!-- display the current scene -->
 <h2><%= @scene.title %></h2>
 <%= image_tag @scene.image, :class => 'scene' %>
@@ -15,20 +16,18 @@
       <% @scene.paths.each do |path| %>
         <li>
           <%= link_to path.description, scene_path(path.destination_id) %>
-          <% if user_signed_in? %>
+          <% if user_signed_in? && current_user.id == @scene.adventure.user_id %>
             - <%= link_to 'Delete', path_path(path.id), :method => 'delete' %> - This will delete the path NOT the scene itself!
           <% end %> <!-- user_signed_in? -->
         </li>
       <% end %> <!-- @scene.paths.each -->
     </ul>
   <% else %>
-    <p style="color:red; font-weight:bold;">Oops! This is an Orphan! It's not an end scene but you've got no paths!?</p>
+    <p style="color:red; font-weight:bold;">Oops! This is an Orphan! It's not an end scene but it has no paths!?</p>
   <% end %> <!-- if @scene.paths.any? -->
 <% end %><!-- if @scene.end -->
 
 <!-- if user is signed in present the editor options -->
-<% if user_signed_in? %>
-
+<% if user_signed_in? && current_user.id == @scene.adventure.user_id %>
   <%= render 'editor_opt' %>
-
-<% end %><!-- if user_signed_in?
+<% end %>
