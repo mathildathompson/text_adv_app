@@ -8,7 +8,7 @@ TextAdvApp::Application.routes.draw do
   resources :adventures
 
   #scene routes
-  resources :scenes
+  resources :scenes, :except => [:index]
 
   #path routes
   resources :tracks, :only => [:create,:destroy]
