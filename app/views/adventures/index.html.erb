@@ -1,17 +1,3 @@
 <h2>Our Adventures</h2>
 
-<ul class="adv-list">
-  <% @adventures.each do |adv| %>
-    <li>
-      <%= link_to(adv, {}) do %>
-        <!-- preview adventure -->
-        <div class="adv-desc">
-          <%= image_tag adv.image, :class => 'thumb' %>
-          <h2><%= adv.name %></h2>
-          <p><%= adv.description %></p>
-        </div>
-        <!-- end of preview adventure -->
-      <% end %>
-    </li>
-  <% end %>
-</ul>
+<%= render 'list' %>

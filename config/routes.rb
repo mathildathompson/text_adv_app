@@ -5,6 +5,7 @@ TextAdvApp::Application.routes.draw do
   get '/guide' => 'home#guide'
 
   #adventure routes
+  get '/adventures/my_creations' => 'adventures#my_creations', :as => :my_creations
   resources :adventures
 
   #scene routes

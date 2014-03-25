@@ -1,7 +1,7 @@
 class AdventuresController < ApplicationController
 
   #must be logged in to use these functions
-  before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
+  before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy, :my_creations]
   #must be the owner to use these functions
   before_filter :check_owner?, :only => [:update, :destroy]
 
@@ -64,6 +64,11 @@ class AdventuresController < ApplicationController
     Adventure.find(params[:id]).destroy
 
     redirect_to adventures_path
+  end
+
+  #----------- NON STANDARD CRUD -----------
+  def my_creations
+    @adventures = Adventure.where("user_id = #{current_user.id}")
   end
 
   private

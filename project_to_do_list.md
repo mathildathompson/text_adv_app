@@ -9,12 +9,8 @@
 * Split 'Adventures' link into two. 'Adventures' which includes PUBLISHED adventures only, and 'My Adventures' which shows all Adventures regardless of status.
 * Update FAQ page
 * Fix the active highlighting on menu bar
-
-ASK JOEL
-
 * Prevent deletion of the opening scene - I have removed the link, but how to validate this?
-* The Adventure rows page...
-* Random white space :S
+* Validate username length! Minimum 8 chars with no spaces? Username must be unique!
 
 ##Styling
 

@@ -1,0 +1,19 @@
+<% if @adventures.any? %>
+  <ul class="adv-list">
+    <% @adventures.each do |adv| %>
+      <li>
+        <%= link_to(adv, {}) do %>
+          <!-- preview adventure -->
+          <div class="adv-desc">
+            <%= image_tag adv.image, :class => 'thumb' %>
+            <h2><%= adv.name %></h2>
+            <p><%= adv.description %></p>
+          </div>
+          <!-- end of preview adventure -->
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No Adventures Found</p>
+<% end %>
