@@ -28,6 +28,8 @@
 
 ###Nice to Have
 
+* Devise should allow remembering the user and email password resets
+* Comments form
 * Searching for an adventure
 * Edit a Track (the description)
 * Map an Adventure (Scene > Track Desc > Scene)
