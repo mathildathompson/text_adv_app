@@ -47,11 +47,14 @@ end
 #added for Heroku deployment
 gem 'rails_12factor'
 
+#fix for Heroku deployment issue
+#gem 'thread_safe', '0.2.0'
+
 #prevent update to attributes
 gem 'protected_attributes'
 
 #devise authentication
-# gem 'devise'
+gem 'devise'
 
 #bootstrap styling
 gem 'bootstrap-sass'
