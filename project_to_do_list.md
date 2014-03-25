@@ -23,8 +23,7 @@
 
 * Retest user permissions !
 * Check validations on models and links to delete!!!
-
-
+* Changing user details
 
 ###Nice to Have
 

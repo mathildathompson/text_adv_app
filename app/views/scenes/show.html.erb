@@ -1,8 +1,9 @@
-<%= link_to @scene.adventure.name, @scene.adventure, :class => 'adv-title' %>
+<h2 style="text-align: center; background-color: orange;">
+  <%= link_to @scene.adventure.name, @scene.adventure, :class => 'adv-title' %>
+</h2>
 <!-- display the current scene -->
 <h2><%= @scene.title %></h2>
-<%= image_tag @scene.image, :class => 'scene' %>
-<p><%= @scene.first_visit %></p>
+<%= image_tag @scene.image, :class => 'scene' %><br><br>
 <p><%= @scene.description %></p>
 
 <!-- determine if this is the end of the adventure -->

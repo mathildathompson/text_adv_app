@@ -28,20 +28,12 @@
     <%= f.text_field :title, {:required => true, :class => 'form-control'} %>
   </div>
   <div class="form-group">
-    <%= f.label :first_visit %>
-    <%= f.text_area :first_visit, {:class => 'form-control'} %>
-  </div>
-  <div class="form-group">
     <%= f.label :description %>
     <%= f.text_area :description, {:required => true, :class => 'form-control', :rows => 10} %>
   </div>
   <div class="form-group">
     <%= f.label :image %>
     <%= f.url_field :image, :class => "form-control" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :multi_visit %>
-    <%= f.check_box :multi_visit, :checked => true %>
   </div>
   <div class="form-group">
     <%= f.label :end %>

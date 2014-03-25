@@ -23,9 +23,6 @@ class Adventure < ActiveRecord::Base
   validates :name, :presence => true
   validates :description, :presence => true
 
-  # no_whitespace = /\A[\S]\z/i
-  # validates :customurl,  :format => { :with => no_whitespace }
-
   def orphans
     orphans = self.scenes.select { |scene| scene.origins.empty? && scene.not_start? }
   end

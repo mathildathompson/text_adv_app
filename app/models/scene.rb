@@ -16,7 +16,7 @@
 
 class Scene < ActiveRecord::Base
   #attributes
-  attr_accessible :title, :first_visit, :description, :image, :end, :multi_visit, :adventure_id
+  attr_accessible :title, :description, :image, :end, :adventure_id
   
   #relationships
   belongs_to :adventure

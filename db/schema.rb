@@ -30,11 +30,9 @@ ActiveRecord::Schema.define(version: 20140324051912) do
   create_table "scenes", force: true do |t|
     t.integer  "adventure_id"
     t.string   "title"
-    t.text     "first_visit"
     t.text     "description"
     t.text     "image"
     t.boolean  "end"
-    t.boolean  "multi_visit"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
