@@ -5,10 +5,15 @@
 
 ###Must Have
 
+* Image upload via API
 * Split 'Adventures' link into two. 'Adventures' which includes PUBLISHED adventures only, and 'My Adventures' which shows all Adventures regardless of status.
 * Update FAQ page
+
+ASK JOEL
+
 * Prevent deletion of the opening scene - I have removed the link, but how to validate this?
-* If a scene is flagged as the end, delete all tracks
+* The Adventure rows page...
+* Random white space :S
 
 ##Styling
 
@@ -24,6 +29,7 @@
 
 ###Nice to Have
 
+* Searching for an adventure
 * Edit a Track (the description)
 * Map an Adventure (Scene > Track Desc > Scene)
 * Itemisation and Saving Progress

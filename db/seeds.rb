@@ -57,7 +57,6 @@ track2.link(scene2, scene, "Flee to the city outskirts")
 #- ADVENTURE SEED END
 #----------------------------------------
 
-
 adv2 = user.adventures.new(:name => 'No-one No-where', :status => 'Draft')
 adv2.description = "What if you woke up and the entire world had vanished without a trace?"
 adv2.image = 'http://i.dailymail.co.uk/i/pix/2011/09/04/article-2033551-0DB21EA400000578-387_964x642.jpg'

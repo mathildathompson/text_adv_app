@@ -58,7 +58,7 @@ class Scene < ActiveRecord::Base
   def new_track_options
     # if scene is an 'end scene' you cannot create a new track
     if self.end
-      new_track_options = nil
+      new_track_options = []
     # it's not an end scene so get our options
     else
       new_track_options = self.adventure.scenes.select do |scene| 

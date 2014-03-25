@@ -28,15 +28,17 @@
 <% end %> <!-- END OF if @scene.origins.any? -->
 
 <!-- if this is an end scene, remove these options -->
-<% if @scene.end != true %>
+<% unless @scene.end %>
   <!-- allow the user to create a new scene and auto link this scene (create a track) to the current scene -->
   <h3>Create a New Scene and Add a Track from the current scene to this New Scene</h3>
   <!-- create a link to -->
   <p><%= link_to 'Create Scene and Track +', new_scene_path(:origin_id => @scene.id), :class => 'btn btn-success' %></p>
+<% end %>
 
-  <!-- option to allow user to create a new scene and link to the current scene -->
-  <h3>Create a New Track from this scene, to another scene</h3>
+<!-- option to allow user to create a new scene and link to the current scene -->
+<h3>Create a New Track from this scene, to another scene</h3>
 
+<% unless @scene.end %>
   <%= form_tag tracks_path do %> 
     <%= hidden_field_tag('origin_id',@scene.id) %>
     <%= label_tag 'Track Description:' %>

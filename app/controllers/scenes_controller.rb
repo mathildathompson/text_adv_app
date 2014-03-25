@@ -28,6 +28,10 @@ class ScenesController < ApplicationController
     @scene = Scene.find params[:id]
     
     if @scene.update_attributes(params[:scene])
+
+      #if this has now been set as an end scene, destroy all it's paths
+      @scene.tracks.destroy_all if @scene.end
+
       redirect_to @scene
     else
       render 'update'
@@ -62,13 +66,9 @@ class ScenesController < ApplicationController
 
     if @scene.save
 
-      #add the track to the new scene to the origin scene
-      origin.destinations << @scene
-
-      #get the track between the origin and this new scene so we can set its text
-      track = origin.tracks.where("destination_id = ?",@scene.id).first
-      track.description = params[:track_desc]
-      track.save
+      # #add a track from the origin scene to the new scene
+      track = Track.new
+      track.link(origin, @scene, params[:track_desc])
 
       redirect_to @scene
     else
