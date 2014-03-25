@@ -32,21 +32,20 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-#better debugging
-gem 'pry-rails'
-gem 'pry-debugger'
-gem 'pry-stack_explorer'
-gem 'better_errors'
-gem 'binding_of_caller'
+group :development do
+  #better debugging
+  gem 'pry-rails'
+  gem 'pry-debugger'
+  gem 'pry-stack_explorer'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+
+  #allow annotation of models
+  gem 'annotate'
+end
 
 #prevent update to attributes
 gem 'protected_attributes'
-
-#allow annotation of models
-gem 'annotate'
-
-#allows url to view routes
-gem 'sextant'
 
 #devise authentication
 gem 'devise'

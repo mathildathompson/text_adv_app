@@ -1,15 +1,16 @@
 <hr>
 
 <h2>Scene Editor!</h2>
-<h3>The Current Scene</h3>
-  <p>
-    <!-- edit link -->
-    <%= link_to 'Edit', edit_scene_path(@scene.id) %>
-    <!-- do not display the delete option if this is the start scene -->
-    <% if @scene.not_start? %>
-      - <%= link_to 'Delete', scene_path(@scene.id), :method => 'delete' %>
-    <% end %> <!-- @scene.adventure... -->
-  </p>
+<h3>The Current Scene - 
+  <!-- edit link -->
+  <%= link_to 'Edit', edit_scene_path(@scene.id), :class => 'btn btn-primary' %>
+  <!-- do not display the delete option if this is the start scene -->
+  <% if @scene.not_start? %>
+      <%= link_to 'Delete', scene_path(@scene.id),{:method => 'delete', :class => 'btn btn-danger', :confirm => 'Are you sure you wish to delete this scene? This cannot be undone.'} %>
+  <% else %>
+    - <span class="red">Delete not available</span> (This is the first scene in your adventure)
+  <% end %> <!-- @scene.adventure... -->
+</h3>
 
 <!-- ORIGIN SCENES SECTION -->
 <h3>Origin scenes (Scenes that have a track to here)</h3>
@@ -31,7 +32,7 @@
   <!-- allow the user to create a new scene and auto link this scene (create a track) to the current scene -->
   <h3>Create a New Scene and Add a Track from the current scene to this New Scene</h3>
   <!-- create a link to -->
-  <p><%= link_to 'Create Scene and Track', new_scene_path(:origin_id => @scene.id) %>
+  <p><%= link_to 'Create Scene and Track +', new_scene_path(:origin_id => @scene.id), :class => 'btn btn-success' %></p>
 
   <!-- option to allow user to create a new scene and link to the current scene -->
   <h3>Create a New Track from this scene, to another scene</h3>
@@ -42,7 +43,7 @@
     <%= text_field_tag :description, nil, :required => true %>
     <%= label_tag 'Destination Scene:' %>
     <%= select_tag(:destination_id, options_for_select(@link_options), :required => true) %>
-    <%= submit_tag 'Add Track' %>  
+    <%= submit_tag 'Add Track', :class => 'btn btn-success btn-xs' %>  
   <% end %><!-- END OF form_tag -->
 <!-- this is the end scene, so options removed -->
 <% else %>

@@ -11,41 +11,41 @@
 <% end %>
 
 <!-- Display the form -->
-<%= form_for @scene, :html => {:class => "scene-form"} do |f| %>
+<%= form_for @scene, :html => {:role => "form"} do |f| %>
   <!-- On the new action only... -->
   <% if params[:action] == 'new' %>
     <!-- Origin ID is required to link this new scene to the scene the user clicked the link from -->
     <%= hidden_field_tag('origin_id',@origin.id) %>
     <!-- Used to Populate the "Description" on a newly created Track -->
-    <div class="form-field">
-      <%= label_tag 'Track Text' %>
-      <%= text_field_tag 'track_desc', nil, {:required => true, :autofocus => true} %>
+    <div class="form-group">
+      <%= label_tag 'Track Description' %>
+      <%= text_field_tag 'track_desc', nil, {:required => true, :autofocus => true, :class => 'form-control'} %>
     </div>
   <% end %>
   <!-- Used to Populate the new Scene Object -->
-  <div class="form-field">
+  <div class="form-group">
     <%= f.label :title %>
-    <%= f.text_field :title, :required => true %>
+    <%= f.text_field :title, {:required => true, :class => 'form-control'} %>
   </div>
-  <div class="form-field">
+  <div class="form-group">
     <%= f.label :first_visit %>
-    <%= f.text_area :first_visit %>
+    <%= f.text_area :first_visit, {:class => 'form-control'} %>
   </div>
-  <div class="form-field">
+  <div class="form-group">
     <%= f.label :description %>
-    <%= f.text_area :description, :required => true %>
+    <%= f.text_area :description, {:required => true, :class => 'form-control', :rows => 10} %>
   </div>
-  <div class="form-field">
+  <div class="form-group">
     <%= f.label :image %>
-    <%= f.url_field :image %>
+    <%= f.url_field :image, :class => "form-control" %>
   </div>
-  <div class="form-field">
+  <div class="form-group">
     <%= f.label :multi_visit %>
     <%= f.check_box :multi_visit, :checked => true %>
   </div>
-  <div class="form-field">
+  <div class="form-group">
     <%= f.label :end %>
     <%= f.check_box :end %>
   </div>
-  <%= f.submit %>
+  <%= f.submit :class => 'btn btn-success' %>
 <% end %>

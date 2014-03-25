@@ -4,7 +4,7 @@
   <h3>The Current Adventure</h3>
   <p>
     <%= link_to 'Edit', edit_adventure_path(@adventure.id) %> | 
-    <%= link_to 'Delete', adventure_path(@adventure.id), :method => 'delete' %>
+    <%= link_to 'Delete', adventure_path(@adventure.id), {:method => 'delete', :confirm => 'WARNING: Are you sure you wish to delete the adventure? The adventure and ALL scenes will be erased. This cannot be undone.'} %>
   </p>
 
   <h3>Scenes in this Adventure</h3>
