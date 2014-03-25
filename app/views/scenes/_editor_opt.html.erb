@@ -1,14 +1,14 @@
 <hr>
 
 <h2>Scene Editor!</h2>
-<h3>The Current Scene - 
+<h3>The Current Scene 
   <!-- edit link -->
   <%= link_to 'Edit', edit_scene_path(@scene.id), :class => 'btn btn-primary' %>
   <!-- do not display the delete option if this is the start scene -->
   <% if @scene.not_start? %>
       <%= link_to 'Delete', scene_path(@scene.id),{:method => 'delete', :class => 'btn btn-danger', :confirm => 'Are you sure you wish to delete this scene? This cannot be undone.'} %>
   <% else %>
-    - <span class="red">Delete not available</span> (This is the first scene in your adventure)
+    <span class="red" title="This is the first scene in your adventure and it cannot be deleted!">Delete not available</span> (This is the first scene in your adventure)
   <% end %> <!-- @scene.adventure... -->
 </h3>
 

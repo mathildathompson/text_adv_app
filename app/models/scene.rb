@@ -55,4 +55,13 @@ class Scene < ActiveRecord::Base
     track = origin.tracks.where("destination_id = ?",self.id).first
   end
 
+  def new_track_options
+    #OPTIONS SHOULD BE NIL IF IT'S THE END!
+    new_track_options = self.adventure.scenes.select do |scene| 
+      #find all scenes where this scene has no track to and the scene is not this scene
+      self.destinations.exclude? scene #&& scene != self
+      # true
+    end
+  end
+
 end

@@ -5,10 +5,8 @@
 
 ###Must Have
 
-
+* Refactor show - link_options
 * Split 'Adventures' link into two. 'Adventures' which includes PUBLISHED adventures only, and 'My Adventures' which shows all Adventures regardless of status.
-* Validate so the first scene CANNOT be deleted.
-* Remove First Visit and Multi Visit options AND Remove Game Model
 * Update FAQ page
 * Prevent deletion of the opening scene - I have removed the link, but how to validate this?
 * If a scene is flagged as the end, delete all tracks

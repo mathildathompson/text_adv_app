@@ -18,7 +18,6 @@ class ScenesController < ApplicationController
     ##########################################
     ##### REFACTOR THIS WITH SELECT!!!!! #####
     ##########################################
-    #how to exclude scenes that this scene already links to?
     @link_options = []
     adv_scenes.each do |scene|
       unless @scene.destinations.include? scene

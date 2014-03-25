@@ -1,11 +1,10 @@
   <hr>
 
   <h2>Adventure Editor!</h2>
-  <h3>The Current Adventure</h3>
-  <p>
-    <%= link_to 'Edit', edit_adventure_path(@adventure.id) %> | 
-    <%= link_to 'Delete', adventure_path(@adventure.id), {:method => 'delete', :confirm => 'WARNING: Are you sure you wish to delete the adventure? The adventure and ALL scenes will be erased. This cannot be undone.'} %>
-  </p>
+  <h3>The Current Adventure:
+    <%= link_to 'Edit', edit_adventure_path(@adventure.id), :class => 'btn btn-primary'  %> | 
+    <%= link_to 'Delete', adventure_path(@adventure.id), {:method => 'delete', :class => 'btn btn-danger', :confirm => 'WARNING: Are you sure you wish to delete the adventure? The adventure and ALL scenes will be erased. This cannot be undone.'} %>
+  </h3>
 
   <h3>Scenes in this Adventure</h3>
   <ul>
