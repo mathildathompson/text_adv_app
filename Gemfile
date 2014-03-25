@@ -32,9 +32,6 @@ group :doc do
   gem 'sdoc', require: false
 end
 
-#added for Heroku deployment
-gem 'rails_12factor'
-
 group :development do
   #better debugging
   gem 'pry-rails'
@@ -47,11 +44,14 @@ group :development do
   gem 'annotate'
 end
 
+#added for Heroku deployment
+gem 'rails_12factor'
+
 #prevent update to attributes
 gem 'protected_attributes'
 
 #devise authentication
-gem 'devise'
+# gem 'devise'
 
 #bootstrap styling
 gem 'bootstrap-sass'
