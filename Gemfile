@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-gem 'rails_12factor'
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 
@@ -33,6 +31,9 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+
+#added for Heroku deployment
+gem 'rails_12factor'
 
 group :development do
   #better debugging
