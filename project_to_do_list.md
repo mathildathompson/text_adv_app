@@ -25,12 +25,13 @@
 
 ###Nice to Have
 
-* Edit an Track
+* Edit a Track (the description)
 * Map an Adventure (Scene > Track Desc > Scene)
-* Itemisation and Saving
+* Itemisation and Saving Progress
 * Setup Game 'so progress is tracked and scenes visited are tracked'
 * Track visited scenes, exclude scenes where multivisit = no
 * Prevent publishing an adventure if it has 'orphan scenes'
 * Categories for adventures to filter
+* Track how many plays an Adventure gets and list top adventures on the home page
 
 ###Ask Instructors
