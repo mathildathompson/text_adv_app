@@ -15,7 +15,9 @@ class ScenesController < ApplicationController
     #to allow linking to other scenes in the same adventure
     adv_scenes = @scene.adventure.scenes.where("id <> #{@scene.id}")
 
+    ##########################################
     ##### REFACTOR THIS WITH SELECT!!!!! #####
+    ##########################################
     #how to exclude scenes that this scene already links to?
     @link_options = []
     adv_scenes.each do |scene|

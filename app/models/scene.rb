@@ -50,4 +50,9 @@ class Scene < ActiveRecord::Base
     @not_start = self.adventure.start_scene_id != self.id
   end
 
+  #finds the track between an origin scene and this scene (the destination)
+  def track_to_here(origin)
+    track = origin.tracks.where("destination_id = ?",self.id).first
+  end
+
 end
