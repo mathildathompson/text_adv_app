@@ -42,7 +42,7 @@
     <%= label_tag 'Track Description:' %>
     <%= text_field_tag :description, nil, :required => true %>
     <%= label_tag 'Destination Scene:' %>
-    <%= select_tag(:destination_id, options_for_select(@link_options), :required => true) %>
+    <%= select_tag(:destination_id, options_for_select(@track_options), :required => true) %>
     <%= submit_tag 'Add Track', :class => 'btn btn-success btn-xs' %>  
   <% end %><!-- END OF form_tag -->
 <!-- this is the end scene, so options removed -->

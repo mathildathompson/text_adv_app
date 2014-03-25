@@ -56,12 +56,16 @@ class Scene < ActiveRecord::Base
   end
 
   def new_track_options
-    #OPTIONS SHOULD BE NIL IF IT'S THE END!
-    new_track_options = self.adventure.scenes.select do |scene| 
-      #find all scenes where this scene has no track to and the scene is not this scene
-      self.destinations.exclude? scene #&& scene != self
-      # true
-    end
-  end
+    # if scene is an 'end scene' you cannot create a new track
+    if self.end
+      new_track_options = nil
+    # it's not an end scene so get our options
+    else
+      new_track_options = self.adventure.scenes.select do |scene| 
+        #find all scenes where this scene has no track to and the scene is not this scene
+        (self.destinations.exclude? scene) && (scene != self)
+      end #end of new_track_options
+    end #end of if self.end
+  end #end of new_track_options method
 
 end

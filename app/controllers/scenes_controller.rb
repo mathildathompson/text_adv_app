@@ -12,21 +12,11 @@ class ScenesController < ApplicationController
   def show
     @scene = Scene.find params[:id]
 
-    #to allow linking to other scenes in the same adventure
-    adv_scenes = @scene.adventure.scenes.where("id <> #{@scene.id}")
-
-    ##########################################
-    ##### REFACTOR THIS WITH SELECT!!!!! #####
-    ##########################################
-    @link_options = []
-    adv_scenes.each do |scene|
-      unless @scene.destinations.include? scene
-        @link_options.push [scene.title,scene.id]
-      end #unless
-    end #adv_scenes.each
-
-    #find origin scenes
-    @origins = @scene.origins
+    @track_options = []
+    #reformat new track options as an array
+    @scene.new_track_options.each do |scene|
+      @track_options.push [scene.title,scene.id]
+    end
 
   end
 
