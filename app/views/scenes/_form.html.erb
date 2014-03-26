@@ -11,7 +11,7 @@
 <% end %>
 
 <!-- Display the form -->
-<%= form_for @scene, :html => {:role => "form"} do |f| %>
+<%= form_for @scene, :html => {:role => "form", :multipart => true} do |f| %>
   <!-- On the new action only... -->
   <% if params[:action] == 'new' %>
     <!-- Origin ID is required to link this new scene to the scene the user clicked the link from -->
@@ -34,6 +34,10 @@
   <div class="form-group">
     <%= f.label :image_url %>
     <%= f.url_field :image_url, :class => "form-control" %>
+  </div>
+  <div>
+    <%= f.label :image_file %><br>
+    <%= f.file_field :image_file, :accept => "image/gif, image/jpeg, image/svg, image/jpg, image/png" %>
   </div>
   <div class="form-group">
     <%= f.label :end %>

@@ -62,9 +62,10 @@ gem 'devise'
 #bootstrap styling
 gem 'bootstrap-sass'
 
-#carrier wave for Amazon S3 Images
+#Gems for Amazon S3 Images
 gem 'carrierwave'
 gem 'dotenv-rails'
+gem "fog", "~> 1.3.1"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
