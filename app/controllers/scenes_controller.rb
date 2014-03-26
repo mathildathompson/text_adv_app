@@ -2,8 +2,8 @@ class ScenesController < ApplicationController
 
   #must be logged in to use these functions
   before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
-  #must be the owner of the adventure to use these functions
-  before_filter :check_owner?, :only => [:edit, :update, :destroy]
+  #must be the owner of the adventure and the adventure must be in 'Draft' status to use these functions
+  before_filter :check_editable?, :only => [:new, :create, :edit, :update, :destroy]
   #if adventure is in 'Draft' status, you must be the owner to view any scenes
   before_filter :check_published?, :only => [:show]
 
@@ -83,9 +83,11 @@ class ScenesController < ApplicationController
 
   private
   #security to prevent updating if not your content
-  def check_owner?
-    scene = Scene.find(params[:id])
-    redirect_to scene_path if scene.adventure.user != current_user
+  def check_editable?
+    #if this is new or edit the scene id will not exist, so use origin_id instead
+    scene = Scene.find(params[:id] ||= params[:origin_id])
+    
+    redirect_to scene_path(scene) if (scene.adventure.user != current_user || scene.adventure.status == 'Published')
   end
 
   def check_published?

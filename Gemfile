@@ -42,6 +42,9 @@ group :development do
 
   #allow annotation of models
   gem 'annotate'
+
+  #to create a model diagram
+  # gem 'railroady'
 end
 
 #added for Heroku deployment

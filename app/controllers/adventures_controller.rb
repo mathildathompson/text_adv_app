@@ -3,7 +3,7 @@ class AdventuresController < ApplicationController
   #must be logged in to use these functions
   before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy, :my_creations]
   #must be the owner of the adventure to use these functions
-  before_filter :check_owner?, :only => [:edit, :update, :destroy]
+  before_filter :check_editable?, :only => [:edit, :update, :destroy]
   #if adventure is in 'Draft' status, you must be the owner to view
   before_filter :check_published?, :only => [:show]
 
@@ -76,7 +76,7 @@ class AdventuresController < ApplicationController
 
   private
   #security to prevent updating if not your content
-  def check_owner?
+  def check_editable?
     adventure = Adventure.find(params[:id])
     redirect_to adventure_path if adventure.user != current_user
   end
