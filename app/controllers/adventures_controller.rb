@@ -54,9 +54,6 @@ class AdventuresController < ApplicationController
 
   def edit
     @adventure = Adventure.find params[:id]
-
-    #set options for selection
-    @statuses = [['Draft','Draft'],['Published','Published']]
   end
 
   def update
@@ -65,7 +62,7 @@ class AdventuresController < ApplicationController
     if @adventure.update_attributes(params[:adventure])
       redirect_to @adventure
     else
-      render 'update'
+      render 'edit'
     end
   end
 

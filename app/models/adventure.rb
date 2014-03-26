@@ -22,6 +22,8 @@ class Adventure < ActiveRecord::Base
   #validations
   validates :name, :presence => true
   validates :description, :presence => true
+  #custom validation
+  validate :publishable?
 
   def orphans
     orphans = self.scenes.select { |scene| scene.origins.empty? && scene.not_start? }
@@ -29,5 +31,13 @@ class Adventure < ActiveRecord::Base
 
   def dead_ends
     dead_ends = self.scenes.select { |scene| scene.destinations.empty? && scene.end == false }
+  end
+
+  def publishable?
+    if self.status == 'Published' && (self.dead_ends.any? || self.orphans.any?)
+      errors.add(:status, "cannot be set to 'Published' if the Adventure contains 'Orphan' or 'Dead End' Scenes")
+      #set the status to Draft if it cannot be Published
+      self.status = 'Draft'
+    end
   end
 end

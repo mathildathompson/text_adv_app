@@ -43,7 +43,7 @@ class ScenesController < ApplicationController
   def destroy
     scene = Scene.find(params[:id])
 
-    raise "Cannot delete the first scene in an adventure" if scene.id = scene.adventure.start_scene_id
+    raise "Cannot delete the first scene in an adventure" if scene.id == scene.adventure.start_scene_id
 
     adv = scene.adventure
     scene.destroy

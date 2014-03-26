@@ -5,10 +5,9 @@
 * Image upload via API
 * Update FAQ page
 * Fix the active highlighting on menu bar
-* Prevent users from accessing adventures not published.
-* Prevent publishing an adventure if it has 'orphan scenes' or 'dead ends' AND remove editor options from published adventures AND prevent users from accessing adventures not published.
+* Prevent publishing an adventure if it has 'orphan scenes' or 'dead ends' AND remove editor options from published adventures.
 * Truncate the adventure description on the index page
-* * Force users to confirm their email address!
+* Force users to confirm their email address!
 
 ##Styling
 
@@ -16,10 +15,10 @@
 * Add Glyph Icons
 * Set consistent page heading text and centre it
 * Create a New Track from this scene, to another scene FORM
+* The adventure end message
 
 ##Testing
 
-* Retest user permissions !
 * Check validations on models and links to delete!!!
 * Changing user details
 
