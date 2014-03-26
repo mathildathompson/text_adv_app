@@ -11,6 +11,7 @@
 * Fix the active highlighting on menu bar
 * Prevent deletion of the opening scene - I have removed the link, but how to validate this?
 * Validate username length! Minimum 8 chars with no spaces? Username must be unique!
+* Prevent users from accessing adventures not published.
 * Prevent publishing an adventure if it has 'orphan scenes' or 'dead ends' AND remove editor options from published adventures AND prevent users from accessing adventures not published.
 
 ##Styling
