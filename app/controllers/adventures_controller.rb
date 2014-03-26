@@ -2,12 +2,21 @@ class AdventuresController < ApplicationController
 
   #must be logged in to use these functions
   before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy, :my_creations]
-  #must be the owner to use these functions
-  before_filter :check_owner?, :only => [:update, :destroy]
+  #must be the owner of the adventure to use these functions
+  before_filter :check_owner?, :only => [:edit, :update, :destroy]
+  #if adventure is in 'Draft' status, you must be the owner to view
+  before_filter :check_published?, :only => [:show]
 
   def index
-    @adventures = Adventure.all
+    #display ONLY published adventures
+    @adventures = Adventure.where(:status => 'Published')
   end
+
+  #----------- NON STANDARD CRUD -----------
+  def my_creations
+    @adventures = Adventure.where("user_id = #{current_user.id}")
+  end
+  #-----------------------------------------
 
   def show
     @adventure = Adventure.find params[:id]
@@ -66,16 +75,17 @@ class AdventuresController < ApplicationController
     redirect_to adventures_path
   end
 
-  #----------- NON STANDARD CRUD -----------
-  def my_creations
-    @adventures = Adventure.where("user_id = #{current_user.id}")
-  end
+  #------------------------------------------------
 
   private
   #security to prevent updating if not your content
   def check_owner?
     adventure = Adventure.find(params[:id])
-    redirect_to adventure if adventure.user_id != current_user.id 
+    redirect_to adventure_path if adventure.user != current_user
   end
 
+  def check_published?
+    adventure = Adventure.find(params[:id])
+    redirect_to adventures_path if adventure.status == 'Draft' && adventure.user != current_user
+  end
 end

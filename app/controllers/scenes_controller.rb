@@ -2,8 +2,10 @@ class ScenesController < ApplicationController
 
   #must be logged in to use these functions
   before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
-  #must be the owner to use these functions
-  before_filter :check_owner?, :only => [:update, :destroy]
+  #must be the owner of the adventure to use these functions
+  before_filter :check_owner?, :only => [:edit, :update, :destroy]
+  #if adventure is in 'Draft' status, you must be the owner to view any scenes
+  before_filter :check_published?, :only => [:show]
 
   def index
     @scenes = Scene.all
@@ -40,6 +42,9 @@ class ScenesController < ApplicationController
 
   def destroy
     scene = Scene.find(params[:id])
+
+    raise "Cannot delete the first scene in an adventure" if scene.id = scene.adventure.start_scene_id
+
     adv = scene.adventure
     scene.destroy
 
@@ -80,7 +85,12 @@ class ScenesController < ApplicationController
   #security to prevent updating if not your content
   def check_owner?
     scene = Scene.find(params[:id])
-    redirect_to scene if scene.adventure.user_id != current_user.id 
+    redirect_to scene_path if scene.adventure.user != current_user
+  end
+
+  def check_published?
+    scene = Scene.find(params[:id])
+    redirect_to adventures_path if scene.adventure.status == 'Draft' && scene.adventure.user != current_user
   end
 
 end

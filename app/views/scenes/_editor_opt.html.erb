@@ -9,12 +9,12 @@
       <%= link_to 'Delete', scene_path(@scene.id),{:method => 'delete', :class => 'btn btn-danger', :confirm => 'Are you sure you wish to delete this scene? This cannot be undone.'} %>
   <% else %>
     <button class="btn btn-danger disabled">Delete</button><br><br>
-    <p>Note: This is the first scene in your adventure and it cannot be deleted</p>
+    <p><b>Note:</b> This is the first scene in your adventure and it cannot be deleted.</p>
   <% end %> <!-- @scene.adventure... -->
 </div>
 
 <!-- ORIGIN SCENES SECTION -->
-<h3>Origin scenes (Scenes that have a track to here)</h3>
+<h3>Origin scenes (Scenes that have a Track to here)</h3>
 
 <!-- if this scene has any origins display them -->
 <% if @scene.origins.any? %>
@@ -26,6 +26,8 @@
 <!-- if this scene is not the start scene display an error -->
 <% elsif @scene.not_start? %>
   <p style="color:red; font-weight:bold;">Oops! This is an Orphan! No other scenes have tracks to here!</p>
+<% else %>
+  <p>This scene has no origin scenes, but it's the start scene of your adventure, so that's OK!</p>
 <% end %> <!-- END OF if @scene.origins.any? -->
 
 <!-- if this is an end scene, remove these options -->

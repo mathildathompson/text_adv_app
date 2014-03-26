@@ -14,6 +14,7 @@ TextAdvApp::Application.routes.draw do
   #path routes
   resources :tracks, :only => [:create,:destroy]
 
+  #used to test for invalid form data
   put '/test' => 'home#test'
   
 end

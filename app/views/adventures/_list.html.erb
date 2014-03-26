@@ -8,6 +8,7 @@
             <%= image_tag adv.image, :class => 'thumb' %>
             <h2><%= adv.name %></h2>
             <p><%= adv.description %></p>
+            <p><b>Created By:</b> <%= adv.user.username %></p>
           </div>
           <!-- end of preview adventure -->
         <% end %>

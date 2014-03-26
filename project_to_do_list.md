@@ -1,25 +1,21 @@
 #Project To Do List
 
-###Bugs
-
-
-
 ###Must Have
 
 * Image upload via API
 * Update FAQ page
 * Fix the active highlighting on menu bar
-* Prevent deletion of the opening scene - I have removed the link, but how to validate this?
-* Validate username length! Minimum 8 chars with no spaces? Username must be unique!
 * Prevent users from accessing adventures not published.
 * Prevent publishing an adventure if it has 'orphan scenes' or 'dead ends' AND remove editor options from published adventures AND prevent users from accessing adventures not published.
+* Truncate the adventure description on the index page
+* * Force users to confirm their email address!
 
 ##Styling
 
-* Style Sign in and Sign Up Forms
-* Add placeholder text to forms
+* Style the Cancel Account Button positioning?
 * Add Glyph Icons
 * Set consistent page heading text and centre it
+* Create a New Track from this scene, to another scene FORM
 
 ##Testing
 
@@ -37,5 +33,6 @@
 * Itemisation, track which scenes visited, save progress
 * Add Categories for adventures to filter by interest
 * Track how many plays an Adventure gets and list top adventures on the home page
+* Give Option to display titles or not on an adventure (when playing)
 
 ###Ask Instructors
