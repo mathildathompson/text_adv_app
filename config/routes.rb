@@ -13,5 +13,7 @@ TextAdvApp::Application.routes.draw do
 
   #path routes
   resources :tracks, :only => [:create,:destroy]
+
+  put '/test' => 'home#test'
   
 end
