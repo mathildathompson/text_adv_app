@@ -17,7 +17,7 @@
       <% @scene.tracks.each do |track| %>
         <li>
           <%= link_to track.description, scene_path(track.destination_id) %>
-          <% if user_signed_in? && current_user.id == @scene.adventure.user_id %>
+          <% if user_signed_in? && current_user.id == @scene.adventure.user_id && @scene.adventure == 'Draft' %>
             - <%= link_to 'Delete', track_path(track.id), {:method => 'delete', :class => 'btn btn-danger btn-xs', :confirm => 'Are you sure you wish to delete this Track? This scene will NOT be deleted'} %>
           <% end %> <!-- user_signed_in? -->
         </li>
@@ -29,6 +29,6 @@
 <% end %><!-- if @scene.end -->
 
 <!-- if user is signed in present the editor options -->
-<% if user_signed_in? && current_user.id == @scene.adventure.user_id %>
+<% if user_signed_in? && current_user.id == @scene.adventure.user_id && @scene.adventure == 'Draft' %>
   <%= render 'editor_opt' %>
 <% end %>
