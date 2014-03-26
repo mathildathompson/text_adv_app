@@ -30,7 +30,7 @@ class User < ActiveRecord::Base
   has_many :adventures
   #validations
   #username must be populated, a minimum of 8 characters and is unique
-  validates :username, :presence => true, length: { minimum: 6 }, :uniqueness => { case_sensitive: false }, 
+  validates :username, :presence => true, length: { minimum: 6, maximum: 20 }, :uniqueness => { case_sensitive: false }, 
             format: { with: /\A[a-zA-Z0-9]+\Z/, message: "only allows alphanumeric characters" }
 
 

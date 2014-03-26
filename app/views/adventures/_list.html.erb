@@ -7,7 +7,8 @@
           <div class="adv-desc">
             <%= image_tag adv.image, :class => 'thumb' %>
             <h2><%= adv.name %></h2>
-            <p><%= adv.description %></p>
+            <!-- truncate adventure description to 500 characters maximum -->
+            <p><%= truncate(adv.description, :length => 300, :separator => ' ') %></p>
             <p><b>Created By:</b> <%= adv.user.username %></p>
           </div>
           <!-- end of preview adventure -->

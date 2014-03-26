@@ -3,9 +3,7 @@
 ###Must Have
 
 * Image upload via API
-* Update FAQ page
 * Fix the active highlighting on menu bar
-* remove editor options from published adventures AND prevent access to these
 * Truncate the adventure description on the index page
 * Force users to confirm their email address!
 * Validate Status can ONLY be either Draft or Published
@@ -13,10 +11,11 @@
 ##Styling
 
 * Style the Cancel Account Button positioning?
+* Update FAQ page
 * Add Glyph Icons
 * Set consistent page heading text and centre it
-* Create a New Track from this scene, to another scene FORM
-* The adventure end message
+* Restyl Form for 'Create a New Track from this scene, to another scene'
+* The adventure end message text and styling
 
 ##Testing
 

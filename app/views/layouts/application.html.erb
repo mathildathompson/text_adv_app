@@ -22,52 +22,48 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to 'TAB', home_path, :class => 'navbar-brand' %>
+        <%= link_to home_path, :class => 'navbar-brand' do %>
+          <span class="glyphicon glyphicon-home"></span>&nbsp; TAB
+        <% end %>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <!-- Left Links -->
-          <li class="active"><%= link_to 'All Adventures', adventures_path %></li>
-          <li><%= link_to 'New Adventure', new_adventure_path %></li>
-          <li><%= link_to 'My Creations', my_creations_path %></li>
-          <li><%= link_to 'Guide / FAQ', '/guide' %></li>
-          <!-- Left Dropdown -->
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
+          <!-- LEFT LINKS -->
+           <!-- class="active" -->
+          <li>
+            <%= link_to adventures_path do %>
+              <span class="glyphicon glyphicon-th-list"></span>&nbsp; All Adventures
+            <% end %>
+          </li>
+          <li>
+            <%= link_to my_creations_path do %>
+              <span class="glyphicon glyphicon-road"></span>&nbsp; My Creations
+            <% end %>
+          </li>
+          <li>
+            <%= link_to new_adventure_path do %>
+              <span class="glyphicon glyphicon-plus"></span>&nbsp; New Adventure
+            <% end %>
+          </li>
+          <li>
+            <%= link_to guide_path do %>
+              <span class="glyphicon glyphicon-question-sign"></span>&nbsp; Guide / FAQ
+            <% end %>
           </li>
         </ul>
-        <!-- Left Search -->
-        <form class="navbar-form navbar-left" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
+        <!-- RIGHT MENU -->
         <ul class="nav navbar-nav navbar-right">
-          <!-- Right Links -->
-          <!-- <li><p class="navbar-text" style="color: #ffffff">Logged in as yyy</p></li> -->
-          <!-- <li><a href="#">Link</a></li> -->
-          <!-- Right Dropdown Menu -->
           <li class="dropdown">
             <% if user_signed_in? %>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Logged in as <%= current_user.username %><b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp; Logged in as <%= current_user.username %><b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><%= link_to 'Edit Your Details', edit_user_registration_path %></li>
                 <li><%= link_to 'Logout', destroy_user_session_path, :method => 'delete' %></li>
               </ul>
             <% else %> <!-- user not signed in -->
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">User Options<b class="caret"></b></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>&nbsp; User Options<b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li><%= link_to 'Sign in', new_user_session_path %></li>
                 <li><%= link_to 'Sign up', new_user_registration_path %></li>
