@@ -62,6 +62,10 @@ gem 'devise'
 #bootstrap styling
 gem 'bootstrap-sass'
 
+#carrier wave for Amazon S3 Images
+gem 'carrierwave'
+gem 'dotenv-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

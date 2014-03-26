@@ -3,7 +3,7 @@
 </h2>
 <!-- display the current scene -->
 <h2><%= @scene.title %></h2>
-<%= image_tag @scene.image, :class => 'scene' %><br><br>
+<%= image_tag @scene.image_url, :class => 'scene' %><br><br>
 <p><%= @scene.description %></p>
 
 <!-- determine if this is the end of the adventure -->
@@ -29,6 +29,6 @@
 <% end %><!-- if @scene.end -->
 
 <!-- if user is signed in present the editor options -->
-<% if user_signed_in? && current_user.id == @scene.adventure.user_id && @scene.adventure == 'Draft' %>
+<% if user_signed_in? && current_user.id == @scene.adventure.user_id && @scene.adventure.status == 'Draft' %>
   <%= render 'editor_opt' %>
 <% end %>

@@ -4,7 +4,8 @@ class CreateScenes < ActiveRecord::Migration
       t.integer :adventure_id
       t.string :title
       t.text :description
-      t.text :image
+      t.text :image_url
+      t.text :image_file
       t.boolean :end
       t.timestamps
     end

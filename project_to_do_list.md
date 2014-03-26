@@ -4,7 +4,6 @@
 
 * Image upload via API
 * Fix the active highlighting on menu bar
-* Truncate the adventure description on the index page
 * Force users to confirm their email address!
 * Validate Status can ONLY be either Draft or Published
 * Add a default image for new adventures if one is not provided
@@ -42,4 +41,5 @@
 * Complex model! Scene > Track > Scene and back again
 * User based permissions = Can only edit their own content.
 * State based permissions = Two states, draft and published. Prevent editing published adventures, prevent viewing of draft adventures.
+* Menu bar highlighting being concise code!
 

@@ -5,18 +5,19 @@
 #  id           :integer          not null, primary key
 #  adventure_id :integer
 #  title        :string(255)
-#  first_visit  :text
 #  description  :text
-#  image        :text
+#  image_url    :text
+#  image_file   :text
 #  end          :boolean
-#  multi_visit  :boolean
 #  created_at   :datetime
 #  updated_at   :datetime
 #
 
 class Scene < ActiveRecord::Base
   #attributes
-  attr_accessible :title, :description, :image, :end, :adventure_id
+  attr_accessible :title, :description, :image_url, :image_file, :end, :adventure_id
+  #add file upload link
+  mount_uploader :image_file, SceneImgUploader
   
   #relationships
   belongs_to :adventure

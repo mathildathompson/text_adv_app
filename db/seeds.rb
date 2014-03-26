@@ -30,14 +30,14 @@ adv.save
 scene = adv.scenes.new
 scene.title = "Ruined City"
 scene.description = "After several hours journey you arrive on the outskirts of a ruined city. Hundreds of ruined skyscrapers lay ahead of you. You stare down the main road believing you can see movement in the distance. \"We should search the ruins for supplies before venturing further\" says Joshua."
-scene.image = "http://i179.photobucket.com/albums/w292/koberko/Ruined%20city%20-%20WIP/scena_test_003.jpg"
+scene.image_url = "http://i179.photobucket.com/albums/w292/koberko/Ruined%20city%20-%20WIP/scena_test_003.jpg"
 scene.end = false
 scene.save
 
 scene2 = adv.scenes.new
 scene2.title = "On the Road"
 scene2.description = "As you walk down the road, you see a group of 5 approaching you. As you get closer you know they mean business. The five standing in front of you are armed and looking for a fight, two have automatic weapons, one has a machete and the other two appear to have concealed weapons"
-scene2.image = "http://media.npr.org/assets/img/2012/08/29/the-day-movie-image-1_wide-77377d00ddd66ee3b1bf3895258d617f4d5e3899-s6-c30.jpg"
+scene2.image_url = "http://media.npr.org/assets/img/2012/08/29/the-day-movie-image-1_wide-77377d00ddd66ee3b1bf3895258d617f4d5e3899-s6-c30.jpg"
 scene2.end = false
 scene2.save
 
@@ -67,7 +67,7 @@ adv2.save
 scene3 = adv2.scenes.new
 scene3.title = "The bedroom"
 scene3.description = "You open your eyes and glance round the room. Rock band posters line the walls of bands you haven't liked or listened to in years. But your parents liked it this way, it gave them the sense that their baby still lives at home. *yuck!*"
-scene3.image = "http://uglyhousephotos.com/wordpress/wp-content/uploads/2011/01/110107a.jpg"
+scene3.image_url = "http://uglyhousephotos.com/wordpress/wp-content/uploads/2011/01/110107a.jpg"
 scene3.end = false
 scene3.save
 
