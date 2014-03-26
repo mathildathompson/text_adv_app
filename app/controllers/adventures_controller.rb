@@ -9,7 +9,7 @@ class AdventuresController < ApplicationController
 
   def index
     #display ONLY published adventures
-    @adventures = Adventure.where(:status => 'Published')
+    @adventures = Adventure.where(:status => 'Published').order(:created_at => :desc)
   end
 
   #----------- NON STANDARD CRUD -----------
