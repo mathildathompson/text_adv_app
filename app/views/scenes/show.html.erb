@@ -19,7 +19,7 @@
     <% if @scene.tracks.any? %>
       <%= render 'tracks' %>
     <% else %>
-      <p style="color:red; font-weight:bold;">Oops! This is an Orphan! It's not an end scene but it has no tracks!?</p>
+      <p class="alert alert-danger center">Oops! This is an Orphan! It's not an end scene but it has no tracks!?</p>
     <% end %> <!-- if @scene.paths.any? -->
   </div><!-- div class="tracks" -->
 <% end %><!-- if @scene.end -->

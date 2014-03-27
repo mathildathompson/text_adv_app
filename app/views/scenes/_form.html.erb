@@ -53,5 +53,5 @@
     <%= f.label :end %>
     <%= f.check_box :end %>
   </div>
-  <%= f.submit :class => 'btn btn-success' %> <%= link_to 'Cancel', :back, :class => 'btn btn-danger' %>
+  <%= f.submit :class => 'btn btn-success' %> <%= link_to 'Cancel', :back, :class => 'btn btn-danger', :confirm => 'This will take you back to previous page and changes you\'ve made will be lost. Do you wish to proceed?' %>
 <% end %>

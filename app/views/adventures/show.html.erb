@@ -4,7 +4,7 @@
 <div class='adv-info clearfix'>
   <%= image_tag @adventure.image, :class => 'adventure' %>
   <p class="big"><span class="heading">Created By:</span> <%= @adventure.user.username %></p>
-  <p><span class="heading big">Description:-</span><br> <%= @adventure.description %></p>
+  <p><span class="heading big">Description...</span><br> <%= @adventure.description %></p>
   <%= link_to scene_path(@adventure.start_scene_id), :class => "btn btn-success" do %>
     <span class="glyphicon glyphicon-play"></span> Play Adventure!
   <% end %>

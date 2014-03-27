@@ -1,3 +1,8 @@
+// SASS VARIABLES
+$nav-color: rgba(26,26,26,0.8);
+$heading-font: 'Titan One', arial;
+$heading-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+
 //--------------------
 // CLEARFIX HACK
 //--------------------
@@ -11,6 +16,13 @@
 
 * html .clearfix             { zoom: 1; } /* IE6 */
 *:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+//--------------------
+// GENERIC USE
+//--------------------
+.center {
+  text-align: center;
+}
 
 //--------------------
 // BODY / CONTAINER
@@ -35,7 +47,7 @@ div.container {
 }
 
 .navbar-brand {
-  font-family: 'Titan One', arial;
+  font-family: $heading-font;
 }
 
 ul.navbar-nav li a {
@@ -47,19 +59,15 @@ ul.navbar-nav li a {
 //--------------------
 
 h1,h2,h3,h4 {
-  font-family: 'Titan One', arial;
+  font-family: $heading-font;
   text-transform: uppercase;
-  text-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+  text-shadow: $heading-shadow;
 }
 
 h1.site-heading {
   font-size: 48px;
   text-align: center;
   text-transform: uppercase;
-}
-
-.center {
-  text-align: center;
 }
 
 //--------------------
@@ -89,7 +97,7 @@ ul.adv-list {
         border-bottom: 1px solid black;
 
         &:hover {
-          background-color: rgba(26,26,26,0.8);
+          background-color: $nav-color;
         }
 
         h2 {
@@ -132,9 +140,22 @@ span.heading {
   font-size: 22px;
 }
 
+//---------------------------
+// ADVENTURE && SCENE - SHOW
+//---------------------------
+
+ul.scene-list li a {
+  font-weight: bold;
+  color: #3874A8;
+}
+
 //--------------------
 // SCENE - SHOW
 //--------------------
+a.adv-title {
+  color: $nav-color;
+}
+
 div.scene-info {
   h2 {
     margin-top: 0;
@@ -161,7 +182,7 @@ div.tracks {
 
         p {
           display: block;
-          background-color: rgba(26,26,26,0.8);
+          background-color: $nav-color;
           padding: 10px;
           border-radius: 5px;
           text-align: center;
@@ -171,7 +192,7 @@ div.tracks {
 
           &:hover {
             background-color: white;
-            color: rgba(26,26,26,0.8);
+            color: $nav-color;
           }//li:hover
         }//p
       }//a

@@ -3,7 +3,7 @@
 <h2>Scene Editor!</h2>
 <div><h3>The Current Scene</h3>
   <!-- edit link -->
-  <%= link_to 'Edit', edit_scene_path(@scene.id), :class => 'btn btn-primary' %>
+  <%= link_to 'Edit', edit_scene_path(@scene.id), :class => 'btn btn-primary' %> | 
   <!-- do not display the delete option if this is the start scene -->
   <% if @scene.not_start? %>
       <%= link_to 'Delete', scene_path(@scene.id),{:method => 'delete', :class => 'btn btn-danger', :confirm => 'Are you sure you wish to delete this scene? This cannot be undone.'} %>
@@ -18,7 +18,7 @@
 
 <!-- if this scene has any origins display them -->
 <% if @scene.origins.any? %>
-  <ul>
+  <ul class="scene-list">
     <% @scene.origins.each do |origin| %>
       <li><%= link_to origin.title, origin %></li>
     <% end %> <!-- END OF @scene.origins.each -->
@@ -45,10 +45,10 @@
   <%= form_tag tracks_path, :class => "form-inline", :role =>"form" do %> 
     <%= hidden_field_tag('origin_id',@scene.id) %>
     <%= label_tag 'Track Description:' %>
-    <%= text_field_tag :description, nil, {:class => "form-control", :required => true} %>
+    <%= text_field_tag :description, nil, {:class => "form-control", :required => true, :size => '500'} %>
     <%= label_tag 'Destination Scene:' %>
     <%= select_tag(:destination_id, options_for_select(@track_options), {:class => "form-control", :required => true}) %>
-    <%= submit_tag 'Add Track', :class => 'btn btn-success btn-xs' %>  
+    <%= submit_tag 'Add Track', :class => 'btn btn-success' %>  
   <% end %><!-- END OF form_tag -->
 <!-- this is the end scene, so options removed -->
 <% elsif @scene.end %>

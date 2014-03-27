@@ -1,17 +1,17 @@
 #Project To Do List
 
-###Ask Joel
+###Ask Joel / Mathilda
 
 * Tracks Delete Buttons!!
+* Fix Amazon S3 Server speed issue!
 
 ###Must Have
 
-* Fix the active highlighting on menu bar for my creations
-* Fix Highlight My Creation adventures!
 * Force users to confirm their email address!
 * Validate Status can ONLY be either Draft or Published
-* Add a default image for new adventures if one is not provided
 * Can't publish an adventure without at least ending!
+* Update Home Page
+* Update FAQ page
 * Readme.md (see below requirements)
 
 Don't forget to update the/add a README file to your project!  README.md Projects need a readme file in markdown explaining their project. Explain your concept and data model. What problem are you solving? What gems and/or APIs are you using?
@@ -21,12 +21,8 @@ it's a good place to thank anyone who has been especially helpful with this proj
 
 ##Styling
 
-* Style the Cancel Account Button positioning?
-* Update FAQ page
-* Add Glyph Icons
-* Set consistent page heading text and centre it
 * Restyle Form for 'Create a New Track from this scene, to another scene'
-* The adventure end message text and styling
+* The adventure end message text and styling!!!
 * 404 Page
 
 ##Testing
@@ -34,8 +30,12 @@ it's a good place to thank anyone who has been especially helpful with this proj
 * Check validations on models and links to delete!!!
 * Changing user details
 
+- - -
+
 ###Nice to Have
 
+* Highlight 'My Creation' when editing my adventure!
+* Add a default image for new adventures if one is not provided
 * Image - Resize automatically
 * Devise should allow remembering the user and email password resets
 * Comments form

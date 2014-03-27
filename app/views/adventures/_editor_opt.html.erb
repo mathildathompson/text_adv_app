@@ -13,7 +13,7 @@
     <%= link_to 'Delete', adventure_path(@adventure.id), {:method => 'delete', :class => 'btn btn-danger', :confirm => 'WARNING: Are you sure you wish to delete the adventure? The adventure and ALL scenes will be erased. This cannot be undone.'} %>
 
   <h3>Scenes in this Adventure</h3>
-  <ul>
+  <ul class="scene-list">
     <% @adventure.scenes.order(:id).each do |scene| %>
       <li><%= link_to(scene.title,scene) %></li>
     <% end %>
@@ -21,10 +21,10 @@
 
 <!-- If the adventure is Published, it can't have any Orphans or Dead Ends due to model validation -->
 <% if @adventure.status == 'Draft' %>
+
   <h3>Orphaned Scenes</h3>
   <p>Scenes which have no paths to reach it (no origin scenes), a user can never get to this scene</p>
-
-  <ul>
+  <ul class="scene-list">
     <% @adventure.orphans.each do |scene| %>
       <li><%= link_to(scene.title,scene) %></li>
     <% end %>
@@ -32,9 +32,10 @@
 
   <h3>Dead End Scenes</h3>
   <p>Scenes that have no destinations (no paths to other scenes) AND are not flagged as the end of an adventure</p>
-  <ul>
+  <ul class="scene-list">
     <% @adventure.dead_ends.each do |scene| %>
       <li><%= link_to(scene.title,scene) %></li>
     <% end %>
   </ul>
+  
 <% end %>
