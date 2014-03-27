@@ -1,8 +1,10 @@
 TextAdvApp::Application.configure do
   #ADDED TO FIX DEPLOYMENT ISSUE?
-  config.assets.initialize_on_precompile = false
+  # config.assets.initialize_on_precompile = false
+  #FROM TERMINAL I RAN
+  # heroku labs:enable user-env-compile -a infinite-harbor-4928
 
-
+  #------------------------------------------------------------
 
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -25,14 +27,14 @@ TextAdvApp::Application.configure do
   # config.action_dispatch.rack_cache = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
-  config.serve_static_assets = true
+  config.serve_static_assets = true #### CHANGED THIS TO TRUE
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
-  config.assets.compile = true
+  config.assets.compile = true #### CHANGED THIS TO TRUE
 
   # Generate digests for assets URLs.
   config.assets.digest = true

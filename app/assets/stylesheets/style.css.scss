@@ -20,12 +20,16 @@ div.container {
   font-family: 'Titan One', arial;
 }
 
-h1#site-heading {
+h1,h2,h3 {
   font-family: 'Titan One', arial;
+  text-transform: uppercase;
+  text-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+h1#site-heading {
   font-size: 48px;
   text-align: center;
   text-transform: uppercase;
-  text-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 //--------------------
@@ -41,15 +45,30 @@ ul.adv-list {
       text-decoration: none;
       color: black;
 
+      &:hover {
+        color: white;
+      }
+
       div.adv-desc {
         display: inline-block;
         vertical-align: top;
         padding: 10px;
         height: 120px;
-        background-color: pink;
         width: 100%;
         height: auto;
         border-bottom: 1px solid black;
+
+        &:hover {
+          background-color: rgba(26,26,26,0.8);
+        }
+
+        h2 {
+          margin: 5px 0;
+        }
+
+        p {
+          margin: 5px 0;  
+        }
 
         img.thumb {
           display: inline-block;

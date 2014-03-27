@@ -10,7 +10,7 @@
             <!-- truncate adventure description to 500 characters maximum -->
             <p><%= truncate(adv.description, :length => 300, :separator => ' ') %></p>
             <p><b>Author:</b> <%= adv.user.username %></p>
-            <p><b>Created:</b> <%= adv.created_at.strftime('%-d-%b-%y %I:%M %p') %></p>
+            <p><b>Created:</b> <%= adv.created_at.strftime('%-d-%b-%Y %l:%M %p UTC') %></p>
           </div>
           <!-- end of preview adventure -->
         <% end %>
