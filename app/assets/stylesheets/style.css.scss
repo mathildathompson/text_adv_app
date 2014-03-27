@@ -1,7 +1,7 @@
 // SASS VARIABLES
 $nav-color: rgba(26,26,26,0.8);
 $heading-font: 'Titan One', arial;
-$heading-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+$gray-shadow: rgba(0, 0, 0, 0.2);
 
 //--------------------
 // CLEARFIX HACK
@@ -61,11 +61,15 @@ ul.navbar-nav li a {
 h1,h2,h3,h4 {
   font-family: $heading-font;
   text-transform: uppercase;
-  text-shadow: $heading-shadow;
 }
+
+h1 {text-shadow: 0 4px 0 $gray-shadow}
+h2 {text-shadow: 0 3px 0 $gray-shadow}
+h3 {text-shadow: 0 2px 0 $gray-shadow}
 
 h1.site-heading {
   font-size: 48px;
+  text-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
   text-align: center;
   text-transform: uppercase;
 }
@@ -102,11 +106,11 @@ ul.adv-list {
 
         h2 {
           margin: 5px 0;
-        }
+        }//h2
 
         p {
           margin: 5px 0;  
-        }
+        }//p
 
         img.thumb {
           display: inline-block;
@@ -126,7 +130,8 @@ ul.adv-list {
 //--------------------
 div.adv-info {
   img {
-    max-width: 500px;
+    // max-width: 500px; COMMENTED THIS OUT DUE TO ADDING img-responsive
+    max-height: 300px;
     float: left;
     padding: 0 15px 0 0;
   }
@@ -163,11 +168,13 @@ div.scene-info {
 
   img {
     float: left;
-    max-width: 500px;
+    // max-width: 500px; COMMENTED THIS OUT DUE TO ADDING img-responsive
     max-height: 300px;
     padding: 0 15px 0 0;
   }
 }//div.scene-info
+
+//display the available tracks to the user/editor
 div.tracks {
   margin: 0 auto;
   max-width: 600px;
@@ -177,6 +184,8 @@ div.tracks {
     padding: 0;
 
     li {
+      position: relative;
+
       a {
         text-decoration: none;
 
@@ -196,16 +205,34 @@ div.tracks {
           }//li:hover
         }//p
       }//a
+
+      a.delete {
+        position: absolute;
+        top: 10px;
+        right: 8px;
+      }//a.delete
     }//li
   }//ul
 }//div.tracks
 
-span.red {
-  color: red;
-  font-weight: bold;
-}
-
-input.wide {
+//specific selector to override bootstrap defaults!
+.form-inline .form-control.wide {
   width: 500px;
 }
 
+//--------------------
+// SCENE - FORM
+//--------------------
+
+//wrap the image url and image file fields in a nice border
+div.img-fields {
+  border: 1px solid rgb(26,26,26);
+  padding: 5px 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+//fix to hide the break tags added automatically when a form has errors
+.field_with_errors+br {
+  display: none;
+}

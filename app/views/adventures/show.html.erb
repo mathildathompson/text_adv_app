@@ -2,7 +2,7 @@
 <hr>
 
 <div class='adv-info clearfix'>
-  <%= image_tag @adventure.image, :class => 'adventure' %>
+  <%= image_tag @adventure.image, :class => 'adventure img-responsive' %>
   <p class="big"><span class="heading">Created By:</span> <%= @adventure.user.username %></p>
   <p><span class="heading big">Description...</span><br> <%= @adventure.description %></p>
   <%= link_to scene_path(@adventure.start_scene_id), :class => "btn btn-success" do %>

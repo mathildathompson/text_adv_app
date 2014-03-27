@@ -45,7 +45,7 @@
   <%= form_tag tracks_path, :class => "form-inline", :role =>"form" do %> 
     <%= hidden_field_tag('origin_id',@scene.id) %>
     <%= label_tag 'Track Description:' %>
-    <%= text_field_tag :description, nil, {:class => "form-control", :required => true} %>
+    <%= text_field_tag :description, nil, {:class => "form-control wide", :required => true} %>
     <%= label_tag 'Destination Scene:' %>
     <%= select_tag(:destination_id, options_for_select(@track_options), {:class => "form-control", :required => true}) %>
     <%= submit_tag 'Add Track', :class => 'btn btn-success' %>  

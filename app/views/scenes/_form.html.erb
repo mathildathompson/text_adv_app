@@ -39,19 +39,23 @@
       </div>
     <!-- There is no image file present -->
     <% else %>
-      <div class="form-group">
-        <%= f.label :image_url %>
-        <%= f.url_field :image_url, :class => "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.label :image_file %><br>
-        <%= f.file_field :image_file, :accept => "image/gif, image/jpeg, image/svg, image/jpg, image/png" %>
+      <div class="img-fields">
+        <h4 class="center">Optional - You may input either an image url <u>OR</u> upload an image file (you cannot do both)</h4>
+        <div class="form-group"> 
+          <%= f.label :image_url %>
+          <%= f.url_field :image_url, :class => "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :image_file %><br>
+          <%= f.file_field :image_file, :accept => "image/gif, image/jpeg, image/svg, image/jpg, image/png" %>
+        </div>
       </div>
     <% end %>
   </div>
   <div class="form-group">
     <%= f.label :end %>
     <%= f.check_box :end %>
+    <p>some text</p>
   </div>
   <%= f.submit :class => 'btn btn-success' %> <%= link_to 'Cancel', :back, :class => 'btn btn-danger', :confirm => 'This will take you back to previous page and changes you\'ve made will be lost. Do you wish to proceed?' %>
 <% end %>

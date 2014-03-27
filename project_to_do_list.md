@@ -2,12 +2,11 @@
 
 ###Ask Joel / Mathilda
 
-* Tracks Delete Buttons!!
 * Fix Amazon S3 Server speed issue!
-* Set width to 500px on the new track form
 
 ###Must Have
 
+* Edit Scene styling!
 * Validate Status can ONLY be either Draft or Published
 * Can't publish an adventure without at least ending!
 * Update Home Page
@@ -33,6 +32,7 @@ it's a good place to thank anyone who has been especially helpful with this proj
 
 ###Nice to Have
 
+* CSS .form-inline .form-control.wide is not responsive!
 * Force users to confirm their email address!
 * Highlight 'My Creation' when editing my adventure!
 * Add a default image for new adventures if one is not provided
@@ -62,7 +62,8 @@ If you load a scene that doesn't match your current game you're kicked out to th
 #Challenges
 
 * Complex model! Scene > Track > Scene and back again
-* User based permissions = Can only edit their own content.
+* User based permissions = Can only edit their own content. Only users who own the content can see it at all in draft status!
 * State based permissions = Two states, draft and published. Prevent editing published adventures, prevent viewing of draft adventures.
 * Menu bar highlighting being concise code!
+* Complex Views (editors and players share the same pages!)
 
