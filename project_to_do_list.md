@@ -8,7 +8,6 @@
 
 ###Must Have
 
-* Force users to confirm their email address!
 * Validate Status can ONLY be either Draft or Published
 * Can't publish an adventure without at least ending!
 * Update Home Page
@@ -22,7 +21,6 @@ it's a good place to thank anyone who has been especially helpful with this proj
 
 ##Styling
 
-* Restyle Form for 'Create a New Track from this scene, to another scene'
 * The adventure end message text and styling!!!
 * 404 Page
 
@@ -35,6 +33,7 @@ it's a good place to thank anyone who has been especially helpful with this proj
 
 ###Nice to Have
 
+* Force users to confirm their email address!
 * Highlight 'My Creation' when editing my adventure!
 * Add a default image for new adventures if one is not provided
 * Image - Resize automatically

@@ -11,7 +11,7 @@
 
 <!-- determine if this is the end of the adventure -->
 <% if @scene.end %>
-  <p>You've reached the end of this adventure, <%= link_to 'play again?', adventure_path(@scene.adventure) %></p>
+  <h3 class="center">You've reached the end of this adventure, <%= link_to 'play again?', adventure_path(@scene.adventure) %></h3>
 <!-- it's not the end so display the available tracks -->
 <% else %>
   <div class="tracks">
