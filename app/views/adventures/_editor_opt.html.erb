@@ -1,10 +1,16 @@
   <hr>
 
   <h2>Adventure Editor!</h2>
-  <h3>The Current Adventure:
+  <h3>The Current Adventure</h3>
+  <p><span class="heading big">Status:</span></b> 
+    <% if @adventure.status == 'Draft' %>
+      <span class="big">Draft</span> - This means it's not visible to the public and the Scenes can be edited
+    <% else %>
+      <span class="big">Published</span> - This means it's visible to the public but you cannot edit any scenes while in this status
+    <% end %>
+  </p>
     <%= link_to 'Edit', edit_adventure_path(@adventure.id), :class => 'btn btn-primary'  %> | 
     <%= link_to 'Delete', adventure_path(@adventure.id), {:method => 'delete', :class => 'btn btn-danger', :confirm => 'WARNING: Are you sure you wish to delete the adventure? The adventure and ALL scenes will be erased. This cannot be undone.'} %>
-  </h3>
 
   <h3>Scenes in this Adventure</h3>
   <ul>
@@ -13,8 +19,10 @@
     <% end %>
   </ul>
 
+<!-- If the adventure is Published, it can't have any Orphans or Dead Ends due to model validation -->
+<% if @adventure.status == 'Draft' %>
   <h3>Orphaned Scenes</h3>
-  <p>Scenes which have no paths to reach it (no origin scenes), a user can never get to this scene.</p>
+  <p>Scenes which have no paths to reach it (no origin scenes), a user can never get to this scene</p>
 
   <ul>
     <% @adventure.orphans.each do |scene| %>
@@ -29,3 +37,4 @@
       <li><%= link_to(scene.title,scene) %></li>
     <% end %>
   </ul>
+<% end %>

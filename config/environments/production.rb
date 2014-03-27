@@ -1,11 +1,4 @@
 TextAdvApp::Application.configure do
-  #ADDED TO FIX DEPLOYMENT ISSUE?
-  # config.assets.initialize_on_precompile = false
-  #FROM TERMINAL I RAN
-  # heroku labs:enable user-env-compile -a infinite-harbor-4928
-
-  #------------------------------------------------------------
-
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.

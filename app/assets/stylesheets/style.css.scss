@@ -124,6 +124,14 @@ div.adv-info {
   }
 }
 
+span.heading {
+  font-weight: bold;
+}
+
+.big {
+  font-size: 22px;
+}
+
 //--------------------
 // SCENE - SHOW
 //--------------------
@@ -150,7 +158,7 @@ div.tracks {
     li {
       a {
         text-decoration: none;
-        
+
         p {
           display: block;
           background-color: rgba(26,26,26,0.8);

@@ -7,6 +7,7 @@
 ###Must Have
 
 * Fix the active highlighting on menu bar for my creations
+* Fix Highlight My Creation adventures!
 * Force users to confirm their email address!
 * Validate Status can ONLY be either Draft or Published
 * Add a default image for new adventures if one is not provided
