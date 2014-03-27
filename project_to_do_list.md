@@ -4,6 +4,7 @@
 
 * Tracks Delete Buttons!!
 * Fix Amazon S3 Server speed issue!
+* Set width to 500px on the new track form
 
 ###Must Have
 
