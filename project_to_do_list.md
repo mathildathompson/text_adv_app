@@ -1,5 +1,9 @@
 #Project To Do List
 
+###Ask Joel
+* Image temp files?
+* reload file name when you hit a validation failure so you don't need to reselect
+
 ###Must Have
 
 * Image upload via API
