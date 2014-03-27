@@ -32,6 +32,8 @@ class Scene < ActiveRecord::Base
   validates :title, :presence => true
   validates :description, :presence => true
 
+  validate :dup_images?
+
   #-------------------------------------------------------------------
   
   #returns the origin scenes (scenes with a path to the current scene)
@@ -68,5 +70,15 @@ class Scene < ActiveRecord::Base
       end #end of new_track_options
     end #end of if self.end
   end #end of new_track_options method
+
+  def get_image
+    self.image_file.present? ? self.image_file : self.image_url
+  end
+
+  def dup_images?
+    if self.image_url.present? && self.image_file.present?
+      errors.add(:image_file, "You cannot have an Image File and an Image URL populated for an adventure, please remove one")
+    end
+  end
 
 end

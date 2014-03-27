@@ -20,6 +20,8 @@ class ScenesController < ApplicationController
       @track_options.push [scene.title,scene.id]
     end
 
+    # binding.pry
+
   end
 
   def edit
@@ -28,6 +30,12 @@ class ScenesController < ApplicationController
 
   def update
     @scene = Scene.find params[:id]
+
+    #remove our image file if checkbox is ticked
+    if params[:scene]["remove_image_file"] == "1"
+      @scene.remove_image_file!
+      @scene.save
+    end
     
     if @scene.update_attributes(params[:scene])
 
@@ -36,7 +44,7 @@ class ScenesController < ApplicationController
 
       redirect_to @scene
     else
-      render 'update'
+      render 'edit'
     end
   end
 
@@ -60,20 +68,21 @@ class ScenesController < ApplicationController
   end
 
   def create
+
     #create a new scene
     @scene = Scene.new(params[:scene])
 
     #find the origin to this scene for linking (a track)
-    origin = Scene.find params[:origin_id]
+    @origin = Scene.find params[:origin_id]
 
     #add the scene to the same adventure as the origin
-    @scene.adventure = origin.adventure
+    @scene.adventure = @origin.adventure
 
     if @scene.save
 
       # #add a track from the origin scene to the new scene
       track = Track.new
-      track.link(origin, @scene, params[:track_desc])
+      track.link(@origin, @scene, params[:track_desc])
 
       redirect_to @scene
     else

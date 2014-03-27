@@ -33,6 +33,7 @@ class Adventure < ActiveRecord::Base
     dead_ends = self.scenes.select { |scene| scene.destinations.empty? && scene.end == false }
   end
 
+  #Validation Methods
   def publishable?
     if self.status == 'Published' && (self.dead_ends.any? || self.orphans.any?)
       errors.add(:status, "cannot be set to 'Published' if the Adventure contains 'Orphan' or 'Dead End' Scenes")
@@ -40,4 +41,5 @@ class Adventure < ActiveRecord::Base
       self.status = 'Draft'
     end
   end
+
 end

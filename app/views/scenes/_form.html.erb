@@ -13,13 +13,13 @@
 <!-- Display the form -->
 <%= form_for @scene, :html => {:role => "form", :multipart => true} do |f| %>
   <!-- On the new action only... -->
-  <% if params[:action] == 'new' %>
+  <% if ['new','create'].include? action_name %>
     <!-- Origin ID is required to link this new scene to the scene the user clicked the link from -->
     <%= hidden_field_tag('origin_id',@origin.id) %>
     <!-- Used to Populate the "Description" on a newly created Track -->
     <div class="form-group">
       <%= label_tag 'Track Description' %>
-      <%= text_field_tag 'track_desc', nil, {:required => true, :autofocus => true, :class => 'form-control'} %>
+      <%= text_field_tag 'track_desc', params['track_desc'], {:required => true, :autofocus => true, :class => 'form-control'} %>
     </div>
   <% end %>
   <!-- Used to Populate the new Scene Object -->
@@ -31,13 +31,23 @@
     <%= f.label :description %>
     <%= f.text_area :description, {:required => true, :class => 'form-control', :rows => 10} %>
   </div>
-  <div class="form-group">
-    <%= f.label :image_url %>
-    <%= f.url_field :image_url, :class => "form-control" %>
-  </div>
+  <!-- Image File Related -->
   <div>
-    <%= f.label :image_file %><br>
-    <%= f.file_field :image_file, :accept => "image/gif, image/jpeg, image/svg, image/jpg, image/png" %>
+    <% if params[:action] == 'edit' && @scene.image_file.present?  %>
+      <div class="form-group">
+        <%= label_tag @scene.image_file.path.split('/').last %> <%= f.check_box :remove_image_file %> - remove file (once removed you can add a new file or input a url)
+      </div>
+    <!-- There is no image file present -->
+    <% else %>
+      <div class="form-group">
+        <%= f.label :image_url %>
+        <%= f.url_field :image_url, :class => "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :image_file %><br>
+        <%= f.file_field :image_file, :accept => "image/gif, image/jpeg, image/svg, image/jpg, image/png" %>
+      </div>
+    <% end %>
   </div>
   <div class="form-group">
     <%= f.label :end %>
