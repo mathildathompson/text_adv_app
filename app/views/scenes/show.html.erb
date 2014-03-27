@@ -1,32 +1,27 @@
-<h2 style="text-align: center; background-color: orange;">
-  <%= link_to @scene.adventure.name, @scene.adventure, :class => 'adv-title' %>
-</h2>
+<h1 class="center">
+  <%= link_to @scene.adventure.name, @scene.adventure, :class => 'adv-title', :confirm => 'This will take you back to the adventure page and you will lose your progress. Do you wish to proceed?' %>
+</h1>
+<hr>
 <!-- display the current scene -->
-<h2><%= @scene.title %></h2>
-<%= image_tag @scene.get_image, :class => 'scene' %><br><br>
-
-<p><%= @scene.description %></p>
+<div class='scene-info clearfix'>
+<%= image_tag @scene.get_image, :class => 'scene' %>
+  <h2><%= @scene.title %></h2>
+  <p><%= @scene.description %></p>
+</div>
 
 <!-- determine if this is the end of the adventure -->
 <% if @scene.end %>
   <p>You've reached the end of this adventure, <%= link_to 'play again?', adventure_path(@scene.adventure) %></p>
 <!-- it's not the end so display the available tracks -->
 <% else %>
-  <h3>Tracks</h3>
-  <% if @scene.tracks.any? %>
-    <ul>
-      <% @scene.tracks.each do |track| %>
-        <li>
-          <%= link_to track.description, scene_path(track.destination_id) %>
-          <% if user_signed_in? && current_user == @scene.adventure.user && @scene.adventure.status == 'Draft' %>
-            - <%= link_to 'Delete', track_path(track.id), {:method => 'delete', :class => 'btn btn-danger btn-xs', :confirm => 'Are you sure you wish to delete this Track? This scene will NOT be deleted'} %>
-          <% end %> <!-- user_signed_in? -->
-        </li>
-      <% end %> <!-- @scene.tracks.each -->
-    </ul>
-  <% else %>
-    <p style="color:red; font-weight:bold;">Oops! This is an Orphan! It's not an end scene but it has no tracks!?</p>
-  <% end %> <!-- if @scene.paths.any? -->
+  <div class="tracks">
+    <h3>Tracks</h3>
+    <% if @scene.tracks.any? %>
+      <%= render 'tracks' %>
+    <% else %>
+      <p style="color:red; font-weight:bold;">Oops! This is an Orphan! It's not an end scene but it has no tracks!?</p>
+    <% end %> <!-- if @scene.paths.any? -->
+  </div><!-- div class="tracks" -->
 <% end %><!-- if @scene.end -->
 
 <!-- if user is signed in present the editor options -->

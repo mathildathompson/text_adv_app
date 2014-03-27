@@ -1,0 +1,14 @@
+<ul>
+  <% @scene.tracks.each do |track| %>
+    <li>
+      <!-- TRACKS TO OTHER SCENES -->
+      <%= link_to scene_path(track.destination_id) do %>
+        <p><%= track.description %></p>
+      <% end %> <!-- link_to scene_path(track.destination_id) -->
+      <!-- DELETE BUTTON -->
+      <% if user_signed_in? && current_user == @scene.adventure.user && @scene.adventure.status == 'Draft' %>
+        - <%= link_to('Delete', track_path(track.id), {:method => 'delete', :class => 'btn btn-danger btn-xs', :confirm => 'Are you sure you wish to delete this Track? This scene will NOT be deleted'})%>
+      <% end %> <!-- user_signed_in? -->
+    </li>
+  <% end %> <!-- @scene.tracks.each -->
+</ul>

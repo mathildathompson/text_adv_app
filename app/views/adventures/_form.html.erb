@@ -1,6 +1,6 @@
 <!-- Show errors on invalid form data -->
 <% if @adventure.errors.any? %>
-  <div class="errors">
+  <div class="alert alert-danger">
     <p><b>Error:</b> Your Adventure could not be saved:</p>
     <ul>
       <% @adventure.errors.full_messages.each do |message| %>
@@ -31,5 +31,5 @@
       <%= f.select :status, [['Draft','Draft'],['Published','Published']], {}, {:class => "form-control"} %>
     </div>
   <% end %>
-  <%= f.submit :class => 'btn btn-success' %>
+  <%= f.submit :class => 'btn btn-success' %> <%= link_to 'Cancel', :back, :class => 'btn btn-danger' %>
 <% end %>

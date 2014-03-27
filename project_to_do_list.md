@@ -1,5 +1,9 @@
 #Project To Do List
 
+###Ask Joel
+
+* Tracks Delete Buttons!!
+
 ###Must Have
 
 * Fix the active highlighting on menu bar for my creations
@@ -7,6 +11,12 @@
 * Validate Status can ONLY be either Draft or Published
 * Add a default image for new adventures if one is not provided
 * Can't publish an adventure without at least ending!
+* Readme.md (see below requirements)
+
+Don't forget to update the/add a README file to your project!  README.md Projects need a readme file in markdown explaining their project. Explain your concept and data model. What problem are you solving? What gems and/or APIs are you using?
+it's a good place to thank anyone who has been especially helpful with this project
+*cough* Mathilda *cough*
+
 
 ##Styling
 
@@ -14,7 +24,7 @@
 * Update FAQ page
 * Add Glyph Icons
 * Set consistent page heading text and centre it
-* Restyl Form for 'Create a New Track from this scene, to another scene'
+* Restyle Form for 'Create a New Track from this scene, to another scene'
 * The adventure end message text and styling
 * 404 Page
 
@@ -35,6 +45,16 @@
 * Add Categories for adventures to filter by interest
 * Track how many plays an Adventure gets and list top adventures on the home page
 * Give Option to display titles or not on an adventure (when playing)
+
+###How to introduce game states?
+
+Firstly, to play a game all users would have to be logged in.
+
+When you click 'Play Adventure', the scene will be loaded that matches your game 'current scene'  
+If you do not have a game for that adventure, a new game will be created.  
+Reaching an end point will delete your game state  
+If you load a scene that doesn't match your current game you're kicked out to the start of the adventure.
+
 
 - - -
 

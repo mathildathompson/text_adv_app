@@ -1,9 +1,19 @@
-<h2>Adventure: <%= @adventure.name %></h2>
-<p>Status: <%= @adventure.status %></p>
-<p>Created By: <%= @adventure.user.username %></p>
-<p>Description: <%= @adventure.description %></p>
-<%= image_tag @adventure.image, :class => 'scene' %>
-<p><%= link_to 'Click Here to Play!', scene_path(@adventure.start_scene_id) %></p>
+<h1 class='center'><%= @adventure.name %></h1>
+<hr>
+
+<div class='adv-info clearfix'>
+  <%= image_tag @adventure.image, :class => 'adventure' %>
+  <p><b>Status:</b> <%= @adventure.status %></p>
+  <p><b>Created By:</b> <%= @adventure.user.username %></p>
+  <p><b>Description:</b> <%= @adventure.description %></p>
+  <%= link_to scene_path(@adventure.start_scene_id), :class => "btn btn-success" do %>
+    <span class="glyphicon glyphicon-play"></span> Play Adventure!
+  <% end %>
+  &nbsp; 
+  <%= link_to adventures_path, :class => "btn btn-default" do %>
+    <span class="glyphicon glyphicon-backward"></span> Back
+  <% end %>
+</div>
 
 <!-- display editor options if user signed in and is the creator of this adventure -->
 <% if user_signed_in? && current_user.id == @adventure.user_id %>

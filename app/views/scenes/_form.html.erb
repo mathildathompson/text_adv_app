@@ -1,6 +1,6 @@
 <!-- Show errors on invalid form data -->
 <% if @scene.errors.any? %>
-  <div class="errors">
+  <div class="alert alert-danger">
     <p><b>Error:</b> Your Scene could not be saved:</p>
     <ul>
       <% @scene.errors.full_messages.each do |message| %>
@@ -53,5 +53,5 @@
     <%= f.label :end %>
     <%= f.check_box :end %>
   </div>
-  <%= f.submit :class => 'btn btn-success' %>
+  <%= f.submit :class => 'btn btn-success' %> <%= link_to 'Cancel', :back, :class => 'btn btn-danger' %>
 <% end %>

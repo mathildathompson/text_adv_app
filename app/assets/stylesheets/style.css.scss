@@ -1,3 +1,21 @@
+//--------------------
+// CLEARFIX HACK
+//--------------------
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  content: "";
+  clear: both;
+  height: 0;
+}
+
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+//--------------------
+// BODY / CONTAINER
+//--------------------
+
 body {
   //http://www.flickr.com/photos/47075398@N02/5282203777/in/photolist-93LF9V-89QtXQ-khzYKp-7C1Ejv-8W6uu9-8W6ufJ-8W6tXs-8W3qHF-edbiSx-edgXFW-edgXAL-7AxDBP-7AxDDK-8W6vrG-edgXxs-edgXs9-edbiFB-7UyFjc-aUJ7dz-8W6tVj-8WhMPE-9Nr9EK-h4fZRF-h4g2AT-h4gi96-h4ftAm-h4f3d8-h4gg7R-h4fgJf-h4fap1-9NskYF-9NuXp9-9NunFf-9NtFcS-9NuGzA-9NtpRb-9NrhMX-9Ntbew-edgXWA-ajB5oE-9Nqv5v-9Nud9m-9NtxSq-9NuVpA-9Nus77-9Nskne-9NutD9-9Nuo8j-9NsiFk-9Nun9w-9Nspj2
   background: url(/assets/snow_castle.jpg) no-repeat center center fixed; 
@@ -20,16 +38,28 @@ div.container {
   font-family: 'Titan One', arial;
 }
 
-h1,h2,h3 {
+ul.navbar-nav li a {
+  font-weight: bold;
+}
+
+//--------------------
+// HEADING RELATED
+//--------------------
+
+h1,h2,h3,h4 {
   font-family: 'Titan One', arial;
   text-transform: uppercase;
   text-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
 }
 
-h1#site-heading {
+h1.site-heading {
   font-size: 48px;
   text-align: center;
   text-transform: uppercase;
+}
+
+.center {
+  text-align: center;
 }
 
 //--------------------
@@ -43,7 +73,7 @@ ul.adv-list {
 
     a {
       text-decoration: none;
-      color: black;
+      color: inherit;
 
       &:hover {
         color: white;
@@ -84,11 +114,62 @@ ul.adv-list {
 }//ul.adv-list
 
 //--------------------
+// ADVENTURE - SHOW
+//--------------------
+div.adv-info {
+  img {
+    max-width: 500px;
+    float: left;
+    padding: 0 15px 0 0;
+  }
+}
+
+//--------------------
 // SCENE - SHOW
 //--------------------
-img.scene {
-  max-width: 500px;
-}
+div.scene-info {
+  h2 {
+    margin-top: 0;
+  }
+
+  img {
+    float: left;
+    max-width: 500px;
+    max-height: 300px;
+    padding: 0 15px 0 0;
+  }
+}//div.scene-info
+div.tracks {
+  margin: 0 auto;
+  max-width: 600px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      a {
+        text-decoration: none;
+        
+        p {
+          display: block;
+          background-color: rgba(26,26,26,0.8);
+          padding: 10px;
+          border-radius: 5px;
+          text-align: center;
+          color: white;
+          text-transform: uppercase;
+          font-weight: bold;
+
+          &:hover {
+            background-color: white;
+            color: rgba(26,26,26,0.8);
+          }//li:hover
+        }//p
+      }//a
+    }//li
+  }//ul
+}//div.tracks
 
 span.red {
   color: red;
