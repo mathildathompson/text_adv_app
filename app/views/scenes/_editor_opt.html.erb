@@ -41,16 +41,18 @@
 <!-- option to allow user to create a new scene and link to the current scene -->
 <h3>Create a New Track from this scene, to another scene</h3>
 
-<% unless @scene.end %>
-  <%= form_tag tracks_path do %> 
+<% if @scene.end == false && @track_options.any? %>
+  <%= form_tag tracks_path, :class => "form-inline", :role =>"form" do %> 
     <%= hidden_field_tag('origin_id',@scene.id) %>
     <%= label_tag 'Track Description:' %>
-    <%= text_field_tag :description, nil, :required => true %>
+    <%= text_field_tag :description, nil, {:class => "form-control", :required => true} %>
     <%= label_tag 'Destination Scene:' %>
-    <%= select_tag(:destination_id, options_for_select(@track_options), :required => true) %>
+    <%= select_tag(:destination_id, options_for_select(@track_options), {:class => "form-control", :required => true}) %>
     <%= submit_tag 'Add Track', :class => 'btn btn-success btn-xs' %>  
   <% end %><!-- END OF form_tag -->
 <!-- this is the end scene, so options removed -->
-<% else %>
+<% elsif @scene.end %>
   <p>Linking unavailable as this is an end scene!</p>
+<% else %>
+  <p>No link options available!</p>
 <% end %><!-- END OF if @scene.end != true -->

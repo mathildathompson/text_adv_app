@@ -1,13 +1,8 @@
 #Project To Do List
 
-###Ask Joel
-* Image temp files?
-* reload file name when you hit a validation failure so you don't need to reselect
-
 ###Must Have
 
-* Image upload via API
-* Fix the active highlighting on menu bar
+* Fix the active highlighting on menu bar for my creations
 * Force users to confirm their email address!
 * Validate Status can ONLY be either Draft or Published
 * Add a default image for new adventures if one is not provided
@@ -29,6 +24,7 @@
 
 ###Nice to Have
 
+* Image - Resize automatically
 * Devise should allow remembering the user and email password resets
 * Comments form
 * Searching for an adventure
