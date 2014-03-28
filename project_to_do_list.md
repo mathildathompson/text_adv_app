@@ -13,11 +13,6 @@
 * Update FAQ page
 * Readme.md (see below requirements)
 
-Don't forget to update the/add a README file to your project!  README.md Projects need a readme file in markdown explaining their project. Explain your concept and data model. What problem are you solving? What gems and/or APIs are you using?
-it's a good place to thank anyone who has been especially helpful with this project
-*cough* Mathilda *cough*
-
-
 ##Styling
 
 * The adventure end message text and styling!!!
@@ -56,7 +51,6 @@ When you click 'Play Adventure', the scene will be loaded that matches your game
 If you do not have a game for that adventure, a new game will be created.  
 Reaching an end point will delete your game state  
 If you load a scene that doesn't match your current game you're kicked out to the start of the adventure.
-
 
 - - -
 
