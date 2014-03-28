@@ -2,23 +2,56 @@
 
 <hr>
 
-<h3>What is "Text Adventure Builder"?</h3>
-<p>Text adventure builder allows you to create your own text adventure. If you remember the old 'pick a path' (like the <a href="http://en.wikipedia.org/wiki/List_of_Fighting_Fantasy_gamebooks" target="_blank">Steve Jackson / Ian Livingstone books</a>) this will be instantly familiar. Except you can create your own adventure and share it with your friends and add images to enhance the story telling!</p>
-
-<h3>Getting Started</h3>
+<h3>Text Adventure Structure</h3>
 <p>
-  If you just want to play an existing adventure you can start playing right away! Just click the 'Adventures' link, and then click on the adventure you want to play. Click on the "Click Here to Play!" link to start the game.
+  An adventure is comprised of three components.
   <br><br>
-  If you want to build your own adventure, before you start, you'll need to register an account so that your adventure will be saved and editable at a later date. Click the "Sign Up" link to create an account. Once you've created an account, you can then start creating adventures! Read the Building an Adventure section below.
+  <b>Adventure</b> - This represents a story. An adventure will have many scenes that describe to the player the situation and when combined create a complete narrative. An adventure needs a name, a description and optionally can have an image.
+  <br><br>
+  <b>Scenes</b> - This represents a piece of the narrative. The player will read your description of the scene and then decide how to proceed (choose a Track to follow) based on the text that they have read.
+  <br><br>
+  <b>Tracks</b> - This is effective a link/path/route between one scene and another. This is how players can progress from one scene to the next. For most scenes you will want to have two or more Tracks available to provide the player with different outcomes to their story. Tracks do not have to be linear, a track can take you back to a scene you may have already visited. A path has a description that will describe to the player how they progress from the current scene to the next i.e. "Walk through the door", "Drive down the road", "Jump out the window" etc...
 </p>
 
 <h3>Building an Adventure</h3>
 <p>
-  An adventure is comprised of three components.
-  <br><br>
-  <b>The adventure</b> - This represents a story. An adventure will have many scenes (pieces of text) that describe to the player the situation. An adventure needs a name, a description and optionally can have an image. This is what players will read / see when deciding on an adventure to play.
-  <br><br>
-  <b>A scene</b> - This represents a piece of the narrative. The player will read your description of the scene and then decide how to proceed (choose a path) based on the text that they have read.
-  <br><br>
-  <b>A path</b> - This is effective a link between one scene and another. This is how players can progress from one scene to the next. For most scenes you will want to have many paths available to provide the player with different outcomes to their story. Paths do not have to be linear, a path can take you to a scene you may have already visited. A path has a description that will describe to the player how they progress from the current scene to the next i.e. "Walk through the door", "Drive down the road", "Jump out the window" etc...
+  <b>Sign Up</b> -  Firstly, sign up for an account if you have not already, this is required to created adventures. To do this, click on 'User Options' in the top right, and click the 'Sign up' link. Fill in your details, hit the Sign up button and you're good to go.
 </p>
+<p>
+  <b>Create Your Adventure</b> - Next, click on the 'New Adventure' link at the top of the page. Now fill in the form to create your adventure. This is what players will read / see when deciding what adventure to play, so the more exciting you make it the more players you'll likely get. An image will certainly help! Once you click 'Create Adventure' your Adventure and a 'First Scene' will be created.
+</p>
+<p>
+  <b>First Scene</b> - The first scene is the start point in your adventure and so cannot be deleted (or else your adventure would be unplayable) but you can (and should) edit it! When you edit the scene you can change the title, description and image!
+</p>
+<ul>
+  <li>The Title should be a very brief intro to your scene</li>
+  <li>
+    The Description should describe the current situation to the player. As an example: "You wake up in your bed. The house is unusually quiet for a Christmas morning, your two little brothers are usualy running round house at 100 miles per hour screaming at this point. You wonder where everyone is? You get out bed, throw on some clothes and...". The ... to end is a good lead into the 'Tracks' you might create (see below).
+  </li>
+  <li>
+    The Image is optional, but if you choose to use one it should be a visual representation of the scene. It could be your own image (uploaded to the site) or hotlinked from another site!
+  </li>
+</ul>
+<p>
+  <b>Creating More Scenes (and also Tracks)</b> - Now that your first scene is created you're going to want to make more or this would be a VERY short story. In the bottom of the page you should see the 'Scene Editor!'. This is where you can modify / expand your adventure. To create a new scene click on the 'Create Scene and Track +' button.
+</p>
+<p>
+  This form will look almost identical to the edit form when you edited your first scene but with one exception! At the top of the form you will see a "Track description" field. When you use this form you are actually doing two tasks. Firstly it will create a brand new scene, secondly it will create a Track (think of it like a path) between the scene where you clicked the 'Create Scene and Track +' button AND the new scene you have just created. This Track is what will allow the player to navigate through your adventure from one scene to the next.
+</p>
+<p>
+  <b>Creating Tracks ONLY</b> - Sometimes you may wish to create a new Track (path) from a scene you have already created to another scene you have already created (i.e. create a track without creating a scene at the same time). This is useful as it allows you to create a more interesting narrative by allowing multiple paths (Tracks) to reach the same scene. 
+</p>
+<p>
+  To do this, navigate to the Scene in which you wish to create a Track FROM. Scroll down to the bottom of the Scene Editor and here you will find "CREATE A NEW TRACK...". Simply type in a description for the Track, select the Destination scene and click 'Add Track' and a new path will be created between the current scene and the scene specified with the wording as per the description you typed.
+</p>
+<p>
+  <b>Publishing</b> - Adventures cannot be scene by the public by default. When created they are in a 'Draft' status and as long as they remain in that state no one other than the logged in owner can see the adventure. To share an adventure you must first set it to 'Published' status. To do this, navigate to your Adventure page and then click Edit. Finally change the status to Published and click 'Update Adventure'. Note: In order to publish an Adventure there cannot be ANY Orphan or Dead End scenes (see below).
+</p>
+
+<h3>Fixing Issues!</h3>
+<p><b>Orphaned Scenes</b></p>
+<p>What is it? - An Orphan Scene is a Scene that has no Tracks leading <u>TO</u> this scene. This makes it impossible for any player to ever reach this scene and you will only be able to access it as the Adventure Creator.</p>
+<p>How Do I Fix It? - You can either delete this Scene or create a Track from another scene in your adventure to the Orphan Scene.</p>
+<p><b>Dead End Scenes</b></p>
+<p>What is it? - Any scene where it is not the End of your Adventure (End checkbox is unticked) and has no Tracks to other Scenes.</p>
+<p>How Do I Fix It? - You can either delete this Scene, set it as an End to your Adventure or create a Track to a new scene or other scene in your adventure so it's no longer a dead end.</p>
