@@ -32,6 +32,7 @@ it's a good place to thank anyone who has been especially helpful with this proj
 
 ###Nice to Have
 
+* Heading on Adventure Show should link back to All Adventures
 * CSS .form-inline .form-control.wide is not responsive!
 * Force users to confirm their email address!
 * Highlight 'My Creation' when editing my adventure!

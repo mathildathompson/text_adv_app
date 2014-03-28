@@ -54,8 +54,7 @@
   </div>
   <div class="form-group">
     <%= f.label :end %>
-    <%= f.check_box :end %>
-    <p>some text</p>
+    <%= f.check_box :end %> - Setting a scene as the end point will end the adventure when the user reaches here. This also prevents creation of any tracks from here!
   </div>
   <%= f.submit :class => 'btn btn-success' %> <%= link_to 'Cancel', :back, :class => 'btn btn-danger', :confirm => 'This will take you back to previous page and changes you\'ve made will be lost. Do you wish to proceed?' %>
 <% end %>
